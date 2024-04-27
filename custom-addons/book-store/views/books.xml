@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!-- actions -->
+
+    <record model="ir.actions.act_window" id="book_store_fiction_action">
+      <field name="name">Fiction</field>
+      <field name="res_model">fiction</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="book_store_action_action">
+      <field name="name">Action</field>
+      <field name="res_model">action</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="book_store_drama_action">
+      <field name="name">Drama</field>
+      <field name="res_model">drama</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- menu actions -->
+    <menuitem name="Fiction" id="book-fiction" parent="book-store-books-menu"
+              action="book_store_fiction_action"/>
+    <menuitem name="Action" id="book-action" parent="book-store-books-menu"
+              action="book_store_action_action"/>
+    <menuitem name="Drama"  id="book-drama" parent="book-store-books-menu"
+              action="book_store_drama_action"/>
+
+    </data>
+</odoo>

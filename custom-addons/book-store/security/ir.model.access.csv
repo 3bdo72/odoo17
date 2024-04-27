@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_book_store,book_store,model_book_store,base.group_user,1,1,1,1
+access_customer,book_customer,model_library_customer,base.group_user,1,1,1,1
+access_order,book_order,model_library_order,base.group_user,1,1,1,1
+access_author,book_author,model_library_author,base.group_user,1,1,1,1
+access_book,book_book,model_library_book,base.group_user,1,1,1,1
+access_genre,book_genre,model_library_genre,base.group_user,1,1,1,1
+access_fiction,book_fiction,model_fiction,base.group_user,1,1,1,1
+access_action,book_action,model_action,base.group_user,1,1,1,1
+access_drama,book_drama,model_drama,base.group_user,1,1,1,1
+access_toys,toys,model_toys,base.group_user,1,1,1,1

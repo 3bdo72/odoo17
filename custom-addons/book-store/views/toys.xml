@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <!-- actions -->
+    <record id="train_action" model="ir.actions.act_window">
+        <field name="name">Train</field>
+        <field name="res_model">toys</field>
+    </record>
+
+    <record id="car_action" model="ir.actions.act_window">
+        <field name="name">Car</field>
+        <field name="res_model">toys</field>
+    </record>
+
+    <record id="motorcycle_action" model="ir.actions.act_window">
+        <field name="name">Motorcycle</field>
+        <field name="res_model">toys</field>
+    </record>
+
+    <!-- menu actions -->
+    <menuitem
+            id="train_item"
+            name="Train"
+            parent="book-store-toys-menu"
+            action="train_action"
+    />
+    <menuitem
+            id="car_item"
+            name="Car"
+            parent="book-store-toys-menu"
+            action="car_action"
+    />
+    <menuitem
+            id="motorcycle_item"
+            name="Motorcycle"
+            parent="book-store-toys-menu"
+            action="motorcycle_action"
+    />
+    </data>
+</odoo>

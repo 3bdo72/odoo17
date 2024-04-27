@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <!-- actions -->
+    <record id="customer_action" model="ir.actions.act_window">
+        <field name="name">Customer</field>
+        <field name="res_model">library.customer</field>
+    </record>
+
+    <record id="order_action" model="ir.actions.act_window">
+        <field name="name">Order</field>
+        <field name="res_model">library.order</field>
+    </record>
+
+    <!-- menu actions -->
+    <menuitem
+            id="customer_item"
+            name="Customer"
+            parent="customer-order-menu"
+            action="customer_action"
+    />
+    <menuitem
+            id="order_item"
+            name="Order"
+            parent="customer-order-menu"
+            action="order_action"
+    />
+    </data>
+</odoo>

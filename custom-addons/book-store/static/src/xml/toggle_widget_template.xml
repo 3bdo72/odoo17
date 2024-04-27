@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="your_module.toggle_widget_template">
+        <div class="o_field_widget o_field_char">
+            <input type="password" t-att-name="name" t-att-value="value"/>
+            <span class="o_toggle_button fa fa-eye-slash" role="img" aria-label="Toggle Visibility"/>
+        </div>
+    </t>
+</templates>

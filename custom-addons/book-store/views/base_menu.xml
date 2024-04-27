@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <!-- actions -->
+    <record model="ir.actions.act_window" id="book-store.action">
+      <field name="name">Book Store</field>
+      <field name="res_model">book.store</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem
+            name="Book Store"
+            id="book_store_menu_root"
+    />
+
+    <!-- menu categories -->
+    <menuitem
+            name="Books"
+            id="book-store-books-menu"
+            parent="book_store_menu_root"
+            action="book-store.action"
+            sequence="1"
+    />
+
+    <menuitem
+            name="Toys"
+            id="book-store-toys-menu"
+            parent="book_store_menu_root"
+            sequence="2"
+    />
+
+    <menuitem
+            name="Customer and Orders"
+            id="customer-order-menu"
+            parent="book_store_menu_root"
+            sequence="3"
+    />
+    </data>
+</odoo>
