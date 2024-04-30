@@ -4,12 +4,13 @@ from odoo.exceptions import ValidationError
 
 class Property(models.Model):
     _name = "property"
+    _description ="Property Record"
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(required=True)  # Ensure required field
     description = fields.Text(required=True)  # Ensure required field
-    postcode = fields.Char(required=True)  # Ensure required field
-    date_availability = fields.Date(required=True)  # Ensure required field
+    postcode = fields.Char(tracking=1)  # Ensure required field
+    date_availability = fields.Date(tracking=1)  # Ensure required field
     location = fields.Char(string="Location")
 
     expected_price = fields.Float()  # Allow null value for expected_price
