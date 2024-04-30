@@ -9,7 +9,7 @@
     "version": "1.0.0",  # Valid version for Odoo 17.0.x.y or higher
     "category": "Sales",
     "license": "AGPL-3",
-    "depends": ["base", "account", "sale_management"],  # List dependent modules
+    "depends": ["base", "account", "sale_management", 'mail'],  # List dependent modules
     "data": [
         "security/ir.model.access.csv",
         "views/base_menu.xml",

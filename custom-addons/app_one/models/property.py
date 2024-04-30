@@ -4,6 +4,7 @@ from odoo.exceptions import ValidationError
 
 class Property(models.Model):
     _name = "property"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(required=True)  # Ensure required field
     description = fields.Text(required=True)  # Ensure required field
