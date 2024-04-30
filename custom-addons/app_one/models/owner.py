@@ -18,6 +18,7 @@ class Owner(models.Model):
     _sql_constraints = [
         ("unique_name", "unique(name)", "This Name is Exist!"),
         ('unique_phone_num', 'unique(phone)', 'This Phone Already Exist!'),
+        ('unique_address', 'unique(address)', 'This Address Already Exist!'),
     ]
     
 
