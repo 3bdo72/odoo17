@@ -15,8 +15,11 @@ class Owner(models.Model):
 
     property_ids = fields.One2many("property", "owner_id")
     
+    _sql_constraints = [
+        ("unique_name", "unique(name)", "This Name is Exist!"),
+        ('unique_phone_num', 'unique(phone)', 'This Phone Already Exist!'),
+    ]
     
-
 
     # @api.constrains("phone")
     # def _check_phone_format(self):

@@ -6,5 +6,5 @@ class LibraryCustomer(models.Model):
 
     name = fields.Char(string="Customer Name")
     email = fields.Char(string="Email")
-    password = fields.Char(string="Password", widget="toggle_widget")  # Add this line
+    password = fields.Char(string="Password")  # Add this line
     order_ids = fields.One2many("library.order", "customer_id", string="Orders")

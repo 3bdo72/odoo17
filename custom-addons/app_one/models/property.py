@@ -14,6 +14,10 @@ class Property(models.Model):
     expected_price = fields.Float()  # Allow null value for expected_price
     selling_price = fields.Float()  # Allow null value for selling_price
     differance = fields.Float(compute="_compute_differance")
+    
+    owner_id = fields.Many2one("owner")
+    owner_phone = fields.Char(string="Owner's Phone", related='owner_id.phone', readonly=False)
+    owner_address = fields.Char(string="Owner's Address", related='owner_id.address', readonly=False)
 
     living_area = fields.Integer()
     bedrooms = fields.Integer()
@@ -47,7 +51,8 @@ class Property(models.Model):
         ],
     )
 
-    owner_id = fields.Many2one("owner")
+
+    
     tag_ids = fields.Many2many("tag")
 
     state = fields.Selection(
