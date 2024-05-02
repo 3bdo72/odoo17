@@ -17,6 +17,7 @@
         "views/owner_view.xml",
         "views/tag_view.xml",
         "views/sale_order_view.xml",
+        "views/building_views.xml"
     ],
     "assets": {"web.assets_backend": ["app_one\static\src\css\property.css"]},
     "application": True,

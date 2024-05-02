@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View building View Tree -->
+    <record id="view_building_tree" model="ir.ui.view">
+        <field name="name">view.building.tree</field>
+        <field name="model">building</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="num"/>
+                <field name="code"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View building form -->
+    <record id="view_building_form" model="ir.ui.view">
+        <field name="name">view.building.form</field>
+        <field name="model">building</field>
+        <field name="arch" type="xml">
+            <form string="Building">
+                <sheet>
+                    <group>
+                        <group string="Genral Info.">
+                            <field name="num"/>
+                        </group>
+                        <group string="Additional Info.">
+                            <field name="code"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- View building search -->
+    <record id="view_building_search" model="ir.ui.view">
+        <field name="name">view.building.search</field>
+        <field name="model">building</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="num"/>
+                <field name="code"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action building -->
+    <record id="action_building" model="ir.actions.act_window">
+        <field name='name'>Building</field>
+        <field name='res_model'>building</field>
+    </record>
+
+
+    <!-- Main Menu-->
+    <menuitem
+    id="building_menu_item"
+    name="Building"
+    parent="properties_menu"
+    action="action_building"
+/>
+</odoo>
