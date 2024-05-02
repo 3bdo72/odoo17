@@ -23,6 +23,7 @@ class Property(models.Model):
 
     living_area = fields.Integer()
     bedrooms = fields.Integer()
+    bathrooms = fields.Integer()
     facades = fields.Integer()
     garage = fields.Boolean()
     garden = fields.Boolean()
@@ -74,6 +75,9 @@ class Property(models.Model):
             "This Description is Already Exist!",
         ),
     ]
+
+    bedroom_line_ids = fields.One2many("property.bedroom.line", "bed_property_id")
+    bathroom_line_ids = fields.One2many("property.bathroom.line", "bath_property_id")
 
     @api.depends("expected_price", "selling_price")
     def _compute_differance(self):
@@ -176,3 +180,20 @@ class Property(models.Model):
     #     res = super(Property, self).unlink()
     #     print("Hello from unlink method")
     #     return res
+
+class PropertyBedroomLine(models.Model):
+    _name = "property.bedroom.line"
+    _description = "Property Bedroom Line"
+    
+    bed_property_id = fields.Many2one("property")
+    area = fields.Float()
+    description = fields.Char()
+    
+    
+class PropertyBathroomLine(models.Model):
+    _name = "property.bathroom.line"
+    _description = "Property Bathroom Line"
+    
+    bath_property_id = fields.Many2one("property")
+    area = fields.Float()
+    description = fields.Char()
