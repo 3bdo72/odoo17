@@ -12,6 +12,7 @@ class Property(models.Model):
     postcode = fields.Char(tracking=1)  # Ensure required field
     date_availability = fields.Date(tracking=1)  # Ensure required field
     location = fields.Char(string="Location")
+    active = fields.Boolean(string="Active", default=True)
 
     expected_price = fields.Float()  # Allow null value for expected_price
     selling_price = fields.Float()  # Allow null value for selling_price

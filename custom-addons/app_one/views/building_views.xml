@@ -10,6 +10,7 @@
                 <field name="num"/>
                 <field name="code"/>
                 <field name="description"/>
+                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -27,6 +28,7 @@
                         </group>
                         <group string="Additional Info.">
                             <field name="code"/>
+                            <field name="active"/>
                         </group>
                         <group>
                             <field name="description"/>

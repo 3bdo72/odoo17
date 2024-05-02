@@ -8,4 +8,5 @@ class Building(models.Model):
 
     num = fields.Integer(string="Number")
     code = fields.Char(string="Code")
-    description = fields.Text(string="Description")  
+    description = fields.Text(string="Description")
+    active = fields.Boolean(string="Active", default=True, invisible=True)
