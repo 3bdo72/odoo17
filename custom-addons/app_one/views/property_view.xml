@@ -1,31 +1,28 @@
 <odoo>
+
+        <!-- View Tree -->
     <record id="property_view_tree" model="ir.ui.view">
         <field name='name'>property tree</field>
         <field name='model'>property</field>
         <field name='arch' type="xml">
             <tree class="header_custom">
-                <field name="name"/>
-                <field name="description"/>
-                <field name="owner_id"/>
-                <field name="owner_phone"/>
-                <field name="owner_address"/>
+                <field name="name" string="Property Name"/>
                 <field name="location"/>
-                <field name="postcode"/>
-                <field name="expected_price"/>
                 <field name="living_area"/>
                 <field name="bedrooms"/>
                 <field name="bathrooms"/>
                 <field name="date_availability"/>
-                <field name="selling_price"/>
                 <field name="garage" optional="1"/>
                 <field name="facades" optional="1"/>
                 <field name="garden" optional="1"/>
                 <field name="garden_orientation" optional="1"/>
                 <field name="garden_area" optional="1"/>
+                <field name="selling_price"/>
             </tree>
         </field>
     </record>
 
+        <!-- View  Form -->
     <record id="property_view_form" model="ir.ui.view">
         <field name='name'>property form</field>
         <field name='model'>property</field>
@@ -110,6 +107,7 @@
         </field>
     </record>
 
+    <!-- View Search -->
     <record id="property_view_search" model="ir.ui.view">
         <field name='name'>property search</field>
         <field name='model'>property</field>
@@ -127,11 +125,13 @@
         </field>
     </record>
 
+        <!-- Action -->
     <record id="property_action" model="ir.actions.act_window">
         <field name='name'>Property</field>
         <field name='res_model'>property</field>
     </record>
 
+        <!-- Main Menu-->
     <menuitem
             id="property_menu_item"
             name="Properties"
