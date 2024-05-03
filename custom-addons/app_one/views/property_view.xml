@@ -61,7 +61,7 @@
                             <field name="location" string="Property Location"/>
                             <field name="postcode"/>
                             <field name="date_availability"/>
-                            <field name="expected_selling_date"/>
+                            <field name="expected_selling_date" invisible="1"/>
                             <field name="is_late"/>
                             <field name="expected_price"/>
                             <field name="selling_price"/>
