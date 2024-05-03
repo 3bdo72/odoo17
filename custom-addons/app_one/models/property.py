@@ -1,16 +1,19 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
-
 class Property(models.Model):
     _name = "property"
-    _description ="Property Record"
+    _description ="Property"
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(required=True)  # Ensure required field
     description = fields.Text(required=True)  # Ensure required field
-    postcode = fields.Char(tracking=1)  # Ensure required field
-    date_availability = fields.Date(tracking=1)  # Ensure required field
+    postcode = fields.Char(tracking=1) 
+    
+    date_availability = fields.Date(tracking=1)
+    expected_selling_date = fields.Date()
+    is_late = fields.Boolean()  #compute="_compute_is_late"
+    
     location = fields.Char(string="Location")
     active = fields.Boolean(string="Active", default=True)
 
@@ -162,6 +165,12 @@ class Property(models.Model):
     def action_close(self):
         for rec in self:
             rec.state = "closed"
+
+    def check_expected_selling_date(self):
+        property_ids = self.search([])
+        for rec in property_ids:
+            if rec.expected_selling_date and rec.expected_selling_date < fields.Date.today():
+                rec.is_late = True
 
     # @api.model_create_multi
     # def create(self, vals_list):

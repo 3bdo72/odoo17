@@ -5,7 +5,7 @@
         <field name='name'>property tree</field>
         <field name='model'>property</field>
         <field name='arch' type="xml">
-            <tree class="header_custom">
+            <tree class="header_custom" decoration-warning='(is_late)'>
                 <field name="name" string="Property Name"/>
                 <field name="location"/>
                 <field name="living_area"/>
@@ -13,6 +13,7 @@
                 <field name="bathrooms"/>
                 <field name="date_availability"/>
                 <field name="state"/>
+                <field name="is_late" invisible="1"/>
                 <field name="active" optional="1"/>
                 <field name="garage" optional="1"/>
                 <field name="facades" optional="1"/>
@@ -60,6 +61,8 @@
                             <field name="location" string="Property Location"/>
                             <field name="postcode"/>
                             <field name="date_availability"/>
+                            <field name="expected_selling_date"/>
+                            <field name="is_late"/>
                             <field name="expected_price"/>
                             <field name="selling_price"/>
                             <field name="differance"/>
@@ -128,20 +131,35 @@
         </field>
     </record>
 
-        <!-- Actions -->
-        <!-- Window Actions -->
-        <record id="property_action" model="ir.actions.act_window">
-            <field name='name'>Property</field>
-            <field name='res_model'>property</field>
-        </record>
-        
-        <!-- Server Actions -->
-        <record id="property_closed" model="ir.actions.server">
+    <!-- Actions -->
+    <!-- Window Actions -->
+    <record id="property_action" model="ir.actions.act_window">
+        <field name='name'>Property</field>
+        <field name='res_model'>property</field>
+    </record>
+    
+    <!-- Server Actions -->
+    <record id="property_closed" model="ir.actions.server">
         <field name='name'>Closed</field>
         <field name="model_id" ref="model_property"/>
         <field name="binding_model_id" ref="model_property"/>
         <field name="state">code</field>
         <field name="code"> action = records.action_close() </field>
+    </record>
+
+    <!-- Automated Actions -->
+    <!-- Check selling date every day -->
+    <record id="check_selling_date_cron" model="ir.cron">
+        <field name="name">Property: Check Selling Date</field>
+        <field name="model_id" ref="model_property"/>
+        <field name="interval_number">1</field>  <!-- Calls every day -->
+        <field name="state">code</field>
+        <field name="code">
+            model.check_expected_selling_date()
+        </field>
+        <field name="interval_type">days</field> <!-- Calls in days -->
+        <field name="numbercall">-1</field> <!--  Calls indefinitely -->
+        <field name="active">True</field> <!-- Ensures the action applies to all records -->
     </record>
 
         <!-- Main Menu-->
