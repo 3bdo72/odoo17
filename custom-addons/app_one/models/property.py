@@ -64,6 +64,7 @@ class Property(models.Model):
             ("draft", "Draft"),
             ("pending", "Pending"),
             ("sold", "Sold"),
+            ("closed", "Closed"),
         ],
         default="draft",
     )
@@ -157,6 +158,10 @@ class Property(models.Model):
         for rec in self:
             print("inside the sold action")
             rec.state = "sold"
+
+    def action_close(self):
+        for rec in self:
+            rec.state = "closed"
 
     # @api.model_create_multi
     # def create(self, vals_list):
