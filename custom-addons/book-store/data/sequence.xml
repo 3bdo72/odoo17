@@ -15,6 +15,13 @@
             <field name="prefix">ACT</field>
             <field name="padding">5</field>
         </record>
+
+        <record id="drama_ref" model="ir.sequence">
+            <field name="name">Drama Seq.</field>
+            <field name="code">drama_ref</field>
+            <field name="prefix">DRA</field>
+            <field name="padding">5</field>
+        </record>
     </data>
     
 </odoo>
