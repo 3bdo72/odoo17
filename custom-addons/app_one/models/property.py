@@ -172,6 +172,13 @@ class Property(models.Model):
             if rec.expected_selling_date and rec.expected_selling_date < fields.Date.today():
                 rec.is_late = True
 
+# 
+    def action(self):
+        print(self.env['owner'].create({
+            'name': 'John Doe',
+            'phone': '123456789',
+            'address': '123 Main St'}))
+
     # @api.model_create_multi
     # def create(self, vals_list):
     #     res = super(Property, self).create(vals_list)
@@ -212,3 +219,4 @@ class PropertyBathroomLine(models.Model):
     bath_property_id = fields.Many2one("property")
     area = fields.Float()
     description = fields.Char()
+

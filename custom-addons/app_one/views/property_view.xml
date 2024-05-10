@@ -33,6 +33,7 @@
             <form>
                 <sheet>
                     <header>
+                        <button name="action" type="object" class="btn btn-primary" string="Action"/>
                         <button name="action_draft" type="object" class="btn btn-secondary" string="Draft"
                                 invisible="state == 'draft'"/>
                         <button name="action_pending" type="object" class="btn btn-warning" string="Pending"
