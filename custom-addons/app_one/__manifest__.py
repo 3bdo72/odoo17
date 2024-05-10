@@ -7,7 +7,7 @@
     "author": "Abdelrahman Soliman",
     "website": "https://www.yourcompany.com",
     "version": "1.0.0",  # Valid version for Odoo 17.0.x.y or higher
-    "category": "Sales",
+    "category": "Administration",
     "license": "AGPL-3",
     "depends": ["base", "account", "sale_management", 'mail'],  # List dependent modules
     "data": [

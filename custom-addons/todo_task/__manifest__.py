@@ -6,7 +6,7 @@
 ToDo Task to Apply for all the previous videos of the odoo playlist
     """,
     'author': "Abdel-Rahman Soliman",
-    'category': 'Accounting',
+    'category': 'Administration',
     'version': '0.1',
     "license": "AGPL-3",
     # any module necessary for this one to work correctly
