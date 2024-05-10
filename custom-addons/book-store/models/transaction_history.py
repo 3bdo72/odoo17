@@ -9,3 +9,4 @@ class TransactionHistory(models.Model):
     amount = fields.Integer(string='Amount', required=True)
     currency = fields.Char(string='Currency', required=True)
     price = fields.Float(string='Price', required=True)
+    category = fields.Char(string='Categorey', required=True)

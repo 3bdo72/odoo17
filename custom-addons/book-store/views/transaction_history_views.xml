@@ -12,6 +12,7 @@
                 <field name="amount"/>
                 <field name="currency"/>
                 <field name="price"/>
+                <field name="category"/>
             </tree>
         </field>
     </record>
@@ -27,6 +28,7 @@
                         <group string="Main Information">
                             <field name="name"/>
                             <field name="author"/>
+                            <field name="category"/>
                         </group>
                         <group string="Transaction Information">
                             <field name="amount"/>

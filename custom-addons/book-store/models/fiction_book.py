@@ -8,6 +8,7 @@ class FictionBook(models.Model):
     ref = fields.Char(default = "New", readonly=True)
     name = fields.Char(string="Book Name")
     author = fields.Char(string="Author Name")
+    category = fields.Char(string="Category", readonly= True, default= 'Fiction') 
     
     amount = fields.Integer(string='Amount', required=True)
     currency = fields.Char(string='Currency', required=True)
@@ -25,6 +26,7 @@ class FictionBook(models.Model):
                 'amount': book.amount,
                 'currency': book.currency,
                 'price': book.price,
+                'category': book.category
             })
 
     @api.model
