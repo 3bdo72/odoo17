@@ -10,7 +10,6 @@ class DramaBook(models.Model):
     author = fields.Char(string="Author Name")
     category = fields.Char(string="Category", readonly= True, default= 'Drama') 
 
-    
     amount = fields.Integer(string='Amount', required=True)
     currency = fields.Char(string='Currency', required=True)
     price = fields.Float(string='Price', required=True)

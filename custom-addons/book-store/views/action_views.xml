@@ -7,8 +7,11 @@
         <field name="model">action</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="ref"/>
                 <field name="name"/>
                 <field name="author"/>
+                <field name="category"/>
+                <field name="price"/>
             </tree>
         </field>
     </record>
@@ -29,6 +32,12 @@
                     <group string="Main Information">
                         <field name="name"/>
                         <field name="author"/>
+                        <field name="category"/>
+                    </group>
+                    <group string="Transaction Information">
+                        <field name="amount"/>
+                        <field name="currency"/>
+                        <field name="price"/>
                     </group>
                 </sheet>
             </form>
