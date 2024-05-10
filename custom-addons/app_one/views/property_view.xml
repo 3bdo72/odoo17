@@ -35,7 +35,7 @@
                     <header>
                         <button name="action" type="object" class="btn btn-primary" string="Action"/>
                         <button name="action_draft" type="object" class="btn btn-secondary" string="Draft"
-                                invisible="state == 'draft'"/>
+                                invisible="state in ('cancel', 'draft')"/>
                         <button name="action_pending" type="object" class="btn btn-warning" string="Pending"
                                 invisible="state != 'draft'"/>
                         <button name="action_sold" type="object" class="btn btn-success" string="Sold"
@@ -51,7 +51,7 @@
                         </h1>
                         <label for="name"/>
                         <h2>
-                            <field name="name"/>
+                            <field name="name" readonly="state == 'closed'"/>
                         </h2>
                         <h2>
                             <field name="property_value" widget="statusbar"/>
@@ -63,36 +63,36 @@
                     <group>
                         <group string="Required Info.">
                             <field name="description"/>
-                            <field name="location" string="Property Location"/>
-                            <field name="postcode"/>
-                            <field name="date_availability"/>
-                            <field name="expected_selling_date" invisible="1"/>
-                            <field name="is_late"/>
-                            <field name="expected_price"/>
-                            <field name="selling_price"/>
-                            <field name="differance"/>
-                            <field name="living_area"/>
+                            <field name="location" string="Property Location" readonly="state == 'closed'"/>
+                            <field name="postcode" readonly="state == 'closed'"/>
+                            <field name="date_availability" readonly="state == 'closed'"/>
+                            <field name="expected_selling_date" invisible="1" readonly="state == 'closed'"/>
+                            <field name="is_late" readonly="state == 'closed'"/>
+                            <field name="expected_price" readonly="state == 'closed'"/>
+                            <field name="selling_price" readonly="state == 'closed'"/>
+                            <field name="differance" readonly="state == 'closed'"/>
+                            <field name="living_area" readonly="state == 'closed'"/>
                         </group>
                         <group string="Additional Info.">
-                            <field name="bedrooms"/>
-                            <field name="bathrooms"/>
-                            <field name="garage"/>
-                            <field name="facades"/>
-                            <field name="garden"/>
-                            <field name="garden_orientation"/>
-                            <field name="garden_area"/>
-                            <field name="tag_ids" widget="many2many_tags"/>
+                            <field name="bedrooms" readonly="state == 'closed'"/>
+                            <field name="bathrooms" readonly="state == 'closed'"/>
+                            <field name="garage" readonly="state == 'closed'"/>
+                            <field name="facades" readonly="state == 'closed'"/>
+                            <field name="garden" readonly="state == 'closed'"/>
+                            <field name="garden_orientation" readonly="state == 'closed'"/>
+                            <field name="garden_area" readonly="state == 'closed'"/>
+                            <field name="tag_ids" widget="many2many_tags" readonly="state == 'closed'"/>
                         </group>
                         <group string="Owner Info.">
-                            <field name="owner_id"/>
-                            <field name="owner_phone"/>
-                            <field name="owner_address"/>
-                            <field name="active"/>
+                            <field name="owner_id" readonly="state == 'closed'"/>
+                            <field name="owner_phone" readonly="state == 'closed'"/>
+                            <field name="owner_address" readonly="state == 'closed'"/>
+                            <field name="active" readonly="state == 'closed'"/>
                         </group>
                     </group>
                     <notebook>
                         <page string="Bedrooms">
-                            <field name="bedroom_line_ids">
+                            <field name="bedroom_line_ids" readonly="state == 'closed'">
                                 <tree editable="bottom">
                                     <field name="description"/>
                                     <field name="area"/>
@@ -100,7 +100,7 @@
                             </field>
                         </page>
                         <page string="Bathrooms">
-                            <field name="bathroom_line_ids">
+                            <field name="bathroom_line_ids" readonly="state == 'closed'">
                                 <tree editable="bottom">
                                     <field name="description"/>
                                     <field name="area"/>

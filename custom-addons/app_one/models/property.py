@@ -151,21 +151,22 @@ class Property(models.Model):
 
     def action_draft(self):
         for rec in self:
-            print("inside draft action")
+            rec.create_history_record(rec.state, "draft")
             rec.state = "draft"
 
     def action_pending(self):
         for rec in self:
-            print("inside pending action")
+            rec.create_history_record(rec.state, "pending")
             rec.state = "pending"
 
     def action_sold(self):
         for rec in self:
-            print("inside the sold action")
+            rec.create_history_record(rec.state, "sold")
             rec.state = "sold"
 
     def action_close(self):
         for rec in self:
+            rec.create_history_record(rec.state, "closed")
             rec.state = "closed"
 
     def check_expected_selling_date(self):
@@ -188,29 +189,14 @@ class Property(models.Model):
             res.ref = self.env["ir.sequence"].next_by_code("property_seq")
         return res
 
-    # @api.model_create_multi
-    # def create(self, vals_list):
-    #     res = super(Property, self).create(vals_list)
-    #     print("Hello from create method")
-    #     return res
-    #
-    # @api.model
-    # def _search(self, domain, offset=0, limit=None, order=None, access_rights_uid=None):
-    #     res = super(Property, self)._search(
-    #         domain, offset=0, limit=None, order=None, access_rights_uid=None
-    #     )
-    #     print("Hello from search method")
-    #     return res
-    #
-    # def write(self, vals_list):
-    #     res = super(Property, self).write(vals_list)
-    #     print("Hello from write method")
-    #     return res
-    #
-    # def unlink(self):
-    #     res = super(Property, self).unlink()
-    #     print("Hello from unlink method")
-    #     return res
+    def create_history_record(self, old_state, new_state):
+        for rec in self:
+            rec.env['property.history'].create({
+                'user_id' : self.env.uid,
+                'property_id' : rec.id,
+                'old_state' : old_state,
+                'new_state' : new_state
+            })
 
 class PropertyBedroomLine(models.Model):
     _name = "property.bedroom.line"
@@ -219,7 +205,6 @@ class PropertyBedroomLine(models.Model):
     bed_property_id = fields.Many2one("property")
     area = fields.Float()
     description = fields.Char()
-    
     
 class PropertyBathroomLine(models.Model):
     _name = "property.bathroom.line"

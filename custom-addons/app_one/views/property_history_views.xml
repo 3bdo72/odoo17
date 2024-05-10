@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View property.history View Tree -->
+    <record id="view_property_history_tree" model="ir.ui.view">
+        <field name="name">view.property.history.tree</field>
+        <field name="model">property.history</field>
+        <field name="arch" type="xml">
+            <tree create = "0" delete = "0" edit = "0">
+                <field name="user_id"/>
+                <field name="property_id"/>
+                <field name="old_state"/>
+                <field name="new_state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View property.history form -->
+    <record id="view_property_history_form" model="ir.ui.view">
+        <field name="name">view.property.history.form</field>
+        <field name="model">property.history</field>
+        <field name="arch" type="xml">
+            <form string="Property History" create = "0" delete = "0" edit = "0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="property_id"/>   
+                        </group>
+                        <group>
+                            <field name="old_state"/>
+                            <field name="new_state"/>        
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View property.history search -->
+    <!-- <record id="view_property_history_search" model="ir.ui.view">
+        <field name="name">view.property.history.search</field>
+        <field name="model">property.history</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record> -->
+
+    <!-- Action property.history -->
+    <record id="action_property_history" model="ir.actions.act_window">
+        <field name="name">Property History</field>
+        <field name="res_model">property.history</field>
+    </record>
+
+        <!-- Main Menu-->
+        <menuitem
+        id="property_history_menu_item"
+        name="History"
+        parent="properties_menu"
+        action="action_property_history"
+/>
+
+
+</odoo>
