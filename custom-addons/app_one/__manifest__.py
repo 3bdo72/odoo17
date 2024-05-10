@@ -12,13 +12,14 @@
     "depends": ["base", "account", "sale_management", 'mail'],  # List dependent modules
     "data": [
         "security/ir.model.access.csv",
+        "data/sequence.xml",
         "views/base_menu.xml",
         "views/property_view.xml",
         "views/owner_view.xml",
         "views/tag_view.xml",
         "views/sale_order_view.xml",
         "views/building_views.xml",
-        "report/property_report.xml"
+        "report/property_report.xml",
     ],
     "assets": {"web.assets_backend": ["app_one\static\src\css\property.css"]},
     "application": True,

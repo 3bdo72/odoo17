@@ -6,6 +6,8 @@ class Property(models.Model):
     _description ="Property"
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
+
+    ref = fields.Char(default = 'New', readonly = True)
     name = fields.Char(required=True)  # Ensure required field
     description = fields.Text(required=True)  # Ensure required field
     postcode = fields.Char(tracking=1) 
@@ -178,6 +180,13 @@ class Property(models.Model):
             'name': 'John Doe',
             'phone': '123456789',
             'address': '123 Main St'}))
+
+    @api.model
+    def create(self, vals):
+        res = super(Property, self).create(vals)
+        if res.ref == 'New':
+            res.ref = self.env["ir.sequence"].next_by_code("property_seq")
+        return res
 
     # @api.model_create_multi
     # def create(self, vals_list):

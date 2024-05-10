@@ -45,10 +45,14 @@
                         <field name="state" widget="statusbar"/>
                     </header>
                     <div class="oe_title">
-                        <label for="name"/>
+                        <label for="ref"/>
                         <h1>
-                            <field name="name"/>
+                            <field name="ref"/>
                         </h1>
+                        <label for="name"/>
+                        <h2>
+                            <field name="name"/>
+                        </h2>
                         <h2>
                             <field name="property_value" widget="statusbar"/>
                         </h2>
