@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View fiction View Tree -->
+    <record id="view_fiction_tree" model="ir.ui.view">
+        <field name="name">view.fiction.tree</field>
+        <field name="model">fiction</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="author"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View fiction form -->
+    <record id="view_fiction_form" model="ir.ui.view">
+        <field name="name">view.fiction.form</field>
+        <field name="model">fiction</field>
+        <field name="arch" type="xml">
+            <form string="Fiction">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="ref"/>
+                        <h1>
+                            <field name="ref"/>
+                        </h1>
+                    </div>
+                    <group string="Main Information">
+                        <field name="name"/>
+                        <field name="author"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View fiction search -->
+    <record id="view_fiction_search" model="ir.ui.view">
+        <field name="name">view.fiction.search</field>
+        <field name="model">fiction</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action fiction -->
+
+
+</odoo>
