@@ -8,6 +8,13 @@
             <field name="prefix">FCT</field>
             <field name="padding">5</field>
         </record>
+        
+        <record id="action_ref" model="ir.sequence">
+            <field name="name">Action Seq.</field>
+            <field name="code">action_ref</field>
+            <field name="prefix">ACT</field>
+            <field name="padding">5</field>
+        </record>
     </data>
     
 </odoo>
