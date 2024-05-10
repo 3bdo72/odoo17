@@ -10,3 +10,4 @@ from . import action_book
 from . import fiction_book
 from . import drama_book
 from . import toys
+from . import transaction_history

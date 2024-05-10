@@ -9,3 +9,4 @@ access_fiction,book_fiction,model_fiction,base.group_user,1,1,1,1
 access_action,book_action,model_action,base.group_user,1,1,1,1
 access_drama,book_drama,model_drama,base.group_user,1,1,1,1
 access_toys,toys,model_toys,base.group_user,1,1,1,1
+access_transaction_history_manager,transaction_history_manager,model_transaction_history,,1,1,1,1

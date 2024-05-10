@@ -21,7 +21,8 @@ We Sell Toys, Books, Gifts and Print whatever u want
         "views/customer_order.xml",
         "views/fiction_views.xml",
         "views/action_views.xml",
-        "views/drama_views.xml"
+        "views/drama_views.xml",
+        "views/transaction_history_views.xml"
     ],
     # only loaded in demonstration mode
     "demo": [
