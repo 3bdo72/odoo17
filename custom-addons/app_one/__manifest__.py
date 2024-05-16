@@ -20,7 +20,8 @@
         "views/sale_order_view.xml",
         "views/building_views.xml",
         "report/property_report.xml",
-        "views/property_history_views.xml"
+        "views/property_history_views.xml",
+        "wizard/change_state_wizard_views.xml",
     ],
     "assets": {"web.assets_backend": ["app_one\static\src\css\property.css"]},
     "application": True,

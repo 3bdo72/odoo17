@@ -6,26 +6,27 @@ class Property(models.Model):
     _description ="Property"
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-
     ref = fields.Char(default = 'New', readonly = True)
     name = fields.Char(required=True)  # Ensure required field
     description = fields.Text(required=True)  # Ensure required field
     postcode = fields.Char(tracking=1) 
-    
+
     date_availability = fields.Date(tracking=1)
     expected_selling_date = fields.Date()
     is_late = fields.Boolean()  #compute="_compute_is_late"
-    
+
     location = fields.Char(string="Location")
     active = fields.Boolean(string="Active", default=True)
 
     expected_price = fields.Float()  # Allow null value for expected_price
     selling_price = fields.Float()  # Allow null value for selling_price
-    differance = fields.Float(compute="_compute_differance")
-    
+    difference = fields.Float(compute="_compute_difference")
+
     owner_id = fields.Many2one("owner")
     owner_phone = fields.Char(string="Owner's Phone", related='owner_id.phone', readonly=False)
     owner_address = fields.Char(string="Owner's Address", related='owner_id.address', readonly=False)
+
+    tag_ids = fields.Many2many("tag")
 
     living_area = fields.Integer()
     bedrooms = fields.Integer()
@@ -60,10 +61,6 @@ class Property(models.Model):
         ],
     )
 
-
-    
-    tag_ids = fields.Many2many("tag")
-
     state = fields.Selection(
         [
             ("draft", "Draft"),
@@ -87,9 +84,9 @@ class Property(models.Model):
     bathroom_line_ids = fields.One2many("property.bathroom.line", "bath_property_id")
 
     @api.depends("expected_price", "selling_price")
-    def _compute_differance(self):
+    def _compute_difference(self):
         for rec in self:
-            rec.differance = rec.expected_price - rec.selling_price
+            rec.difference = rec.expected_price - rec.selling_price
 
     @api.onchange("bedrooms")
     def _onchange_bedrooms(self):
@@ -192,11 +189,26 @@ class Property(models.Model):
     def create_history_record(self, old_state, new_state):
         for rec in self:
             rec.env['property.history'].create({
-                'user_id' : self.env.uid,
-                'property_id' : rec.id,
-                'old_state' : old_state,
-                'new_state' : new_state
+                'user_id': self.env.uid,
+                'property_id': rec.id,
+                'old_state': old_state,
+                'new_state': new_state,
             })
+
+    def create_history_record_from_wizard(self, old_state, new_state, reason):
+        for rec in self:
+            rec.env['property.history'].create({
+                'user_id': self.env.uid,
+                'property_id': rec.id,
+                'old_state': old_state,
+                'new_state': new_state,
+                'reason': reason or "",
+            })
+
+    def action_open_change_state_wizard(self):
+        action = self.env["ir.actions.actions"]._for_xml_id("app_one.action_change_state_wizard")
+        action['context'] = {'default_property_id': self.id}
+        return action
 
 class PropertyBedroomLine(models.Model):
     _name = "property.bedroom.line"

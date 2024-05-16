@@ -8,3 +8,4 @@ class PropertyHistory(models.Model):
     user_id = fields.Many2one('res.users', string="User")
     old_state = fields.Char(string="Old State")
     new_state = fields.Char(string="New State")
+    reason = fields.Char()
