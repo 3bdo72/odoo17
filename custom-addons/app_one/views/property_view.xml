@@ -8,6 +8,7 @@
             <tree class="header_custom" decoration-warning='(is_late)'>
                 <field name="name" string="Property Name"/>
                 <field name="location"/>
+                <field name="create_time"/>
                 <field name="living_area"/>
                 <field name="bedrooms"/>
                 <field name="bathrooms"/>
@@ -66,6 +67,7 @@
                             <field name="location" string="Property Location" readonly="state == 'closed'"/>
                             <field name="postcode" readonly="state == 'closed'"/>
                             <field name="date_availability" readonly="state == 'closed'"/>
+                            <field name="create_time"/>
                             <field name="expected_selling_date" invisible="1" readonly="state == 'closed'"/>
                             <field name="is_late" readonly="state == 'closed'"/>
                             <field name="expected_price" readonly="state == 'closed'"/>

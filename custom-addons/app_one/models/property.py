@@ -26,6 +26,10 @@ class Property(models.Model):
     owner_phone = fields.Char(string="Owner's Phone", related='owner_id.phone', readonly=False)
     owner_address = fields.Char(string="Owner's Address", related='owner_id.address', readonly=False)
 
+    create_time = fields.Datetime(
+        string="Create Time", default=fields.Datetime.now
+    )
+
     tag_ids = fields.Many2many("tag")
 
     living_area = fields.Integer()
