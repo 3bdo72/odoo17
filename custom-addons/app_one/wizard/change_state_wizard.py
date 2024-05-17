@@ -16,5 +16,5 @@ class ChangeStateWizard(models.TransientModel):
     def action_confirm(self):
         if self.property_id.state == 'closed':
             self.property_id.state = self.state
-            self.property_id.create_history_record_from_wizard('closed', self.state, self.reason)
+            self.property_id.create_history_record('closed', self.state, self.reason)
 

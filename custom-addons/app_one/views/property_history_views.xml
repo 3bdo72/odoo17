@@ -20,7 +20,7 @@
         <field name="name">view.property.history.form</field>
         <field name="model">property.history</field>
         <field name="arch" type="xml">
-            <form string="Property History" create = "0" delete = "0" edit = "0">
+            <form string="Property History" create = "0" delete = "1" edit = "0">
                 <sheet>
                     <group>
                         <group>
@@ -33,6 +33,24 @@
                             <field name="reason"/>        
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Bedrooms">
+                            <field name="bedroom_history_line_ids" readonly="1">
+                                <tree>
+                                    <field name="description"/>
+                                    <field name="area"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Bathrooms">
+                            <field name="bathroom_history_line_ids" readonly="1">
+                                <tree>
+                                    <field name="description"/>
+                                    <field name="area"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

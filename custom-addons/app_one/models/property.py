@@ -186,16 +186,7 @@ class Property(models.Model):
             res.ref = self.env["ir.sequence"].next_by_code("property_seq")
         return res
 
-    def create_history_record(self, old_state, new_state):
-        for rec in self:
-            rec.env['property.history'].create({
-                'user_id': self.env.uid,
-                'property_id': rec.id,
-                'old_state': old_state,
-                'new_state': new_state,
-            })
-
-    def create_history_record_from_wizard(self, old_state, new_state, reason):
+    def create_history_record(self, old_state, new_state, reason=""):
         for rec in self:
             rec.env['property.history'].create({
                 'user_id': self.env.uid,
@@ -203,6 +194,8 @@ class Property(models.Model):
                 'old_state': old_state,
                 'new_state': new_state,
                 'reason': reason or "",
+                'bedroom_history_line_ids': [(0, 0, {'description': line.description, 'area': line.area}) for line in rec.bedroom_line_ids],
+                'bathroom_history_line_ids': [(0, 0, {'description': line.description, 'area': line.area}) for line in rec.bathroom_line_ids],
             })
 
     def action_open_change_state_wizard(self):
