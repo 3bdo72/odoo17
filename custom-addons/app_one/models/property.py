@@ -9,7 +9,7 @@ class Property(models.Model):
 
     ref = fields.Char(default = 'New', readonly = True)
     name = fields.Char(required=True)  # Ensure required field
-    description = fields.Text(required=True)  # Ensure required field
+    description = fields.Text()
     postcode = fields.Char(tracking=1) 
 
     date_availability = fields.Date(tracking=1)
