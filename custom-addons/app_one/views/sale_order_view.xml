@@ -4,9 +4,16 @@
         <field name='model'>sale.order</field>
         <field name='inherit_id' ref="sale.view_order_form"/>
         <field name='arch' type="xml">
-        <field name="partner_id" position="after">
-            <field name="property_id"/>
-        </field>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="property_id"/>
+            </xpath>
+            <xpath expr="//header" position="inside">
+                <button name="action_test_something"
+                    string="Test Something"
+                    type="object"
+                    class="btn-secondary"
+                />
+            </xpath>
         </field>
     </record>
 </odoo>

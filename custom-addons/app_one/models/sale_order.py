@@ -10,3 +10,6 @@ class SaleOrder(models.Model):
         res = super(SaleOrder, self).action_confirm()
         print("inside the action confirm")  # our code
         return res
+
+    def action_test_something(self):
+        print("inside the action test something")
