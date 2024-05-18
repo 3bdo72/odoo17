@@ -12,6 +12,10 @@ class Owner(models.Model):
     name = fields.Char(string="Name", required=True)
     phone = fields.Char(string="Phone Number", required=True)
     address = fields.Char(string="Address")
+    gender = fields.Selection(
+        string="Gender",
+        selection=[("male", "Male"), ("female", "Female"), ("other", "Other")],
+    )
 
     property_ids = fields.One2many("property", "owner_id")
     

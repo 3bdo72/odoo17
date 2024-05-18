@@ -5,6 +5,7 @@
         <field name='arch' type="xml">
             <tree>
                 <field name="name"/>
+                <field name="gender"/>
                 <field name="phone" widget="phone_number"/>
                 <field name="address"/>
                 <field name="property_ids" widget="many2many_tags"/>
@@ -25,6 +26,7 @@
                         </h1>
                     </div>
                     <group>
+                        <field name="gender"/>
                         <field name="phone" string="Phone Number" widget="phone_number"/>
                         <field name="address"/>
                         <field name="property_ids" widget="many2many_tags"/>
