@@ -186,10 +186,7 @@ class Property(models.Model):
 
 # 
     def action(self):
-        print(self.env['owner'].create({
-            'name': 'John Doe',
-            'phone': '123456789',
-            'address': '123 Main St'}))
+        print(self.env['property'].search(['|', ('name', 'ilike', 'Property'), ('garage', '!=', True)]))
 
     @api.model
     def create(self, vals):
