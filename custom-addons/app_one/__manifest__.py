@@ -11,6 +11,7 @@
     "license": "AGPL-3",
     "depends": ["base", "account", "sale_management", 'mail'],  # List dependent modules
     "data": [
+        "security/security.xml",
         "security/ir.model.access.csv",
         "data/sequence.xml",
         "views/base_menu.xml",

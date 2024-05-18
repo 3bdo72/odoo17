@@ -15,5 +15,6 @@
                 name="Configration"
                 parent="real_estate_root_menu"
                 sequence="2"
+                groups="app_one.property_manager_group"
         />
         </odoo>
