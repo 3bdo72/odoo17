@@ -34,6 +34,9 @@
             <form>
                 <sheet>
                     <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>  <!-- Archived Logo-->
+                    <widget name="web_ribbon" title="Draft" bg_color="text-bg-secondary" invisible="state != 'draft'"/>  <!-- Draft Logo-->
+                    <widget name="web_ribbon" title="Pending" bg_color="text-bg-warning" invisible="state != 'pending'"/>  <!-- Pending Logo-->
+                    <widget name="web_ribbon" title="Sold" bg_color="text-bg-success" invisible="state != 'sold'"/>  <!-- Sold Logo-->
                     <header>
                         <button name="action" type="object" class="btn btn-primary" string="Action"/>
                         <button name="action_draft" type="object" class="btn btn-secondary" string="Draft"
