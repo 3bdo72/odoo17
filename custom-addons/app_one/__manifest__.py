@@ -25,7 +25,10 @@
         "wizard/change_state_wizard_views.xml",
         "views/account_move_views.xml"
     ],
-    "assets": {"web.assets_backend": ["app_one\static\src\css\property.css"]},
+    "assets": {
+        "web.assets_backend": ["app_one\static\src\css\property.css"],
+        "web.report.assets_common": ["app_one/static/src/css/font.css"],
+        },
     "application": True,
     "installable": True,
     "auto_install": False,
