@@ -33,6 +33,14 @@
         <field name='arch' type="xml">
             <form>
                 <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button name="action_open_related_owner"
+                                type="object"
+                                icon="fa-user" 
+                                invisible="not owner_id"
+                                string="Open Related Owner" 
+                                />
+                    </div>
                     <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>  <!-- Archived Logo-->
                     <widget name="web_ribbon" title="Draft" bg_color="text-bg-secondary" invisible="state != 'draft'"/>  <!-- Draft Logo-->
                     <widget name="web_ribbon" title="Pending" bg_color="text-bg-warning" invisible="state != 'pending'"/>  <!-- Pending Logo-->
