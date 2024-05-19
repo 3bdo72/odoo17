@@ -56,4 +56,14 @@
             </search>
         </field>
     </record>
+
+    <!-- Action Action -->
+    <record model="ir.actions.act_window" id="book_store_action_action">
+        <field name="name">Action</field>
+        <field name="res_model">action</field>
+    </record>
+
+    <!-- Action Menu -->
+    <menuitem name="Action" id="book-action" parent="book-store-books-menu"
+                action="book_store_action_action"/>
 </odoo>

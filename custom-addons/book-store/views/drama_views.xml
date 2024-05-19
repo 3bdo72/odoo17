@@ -57,7 +57,13 @@
         </field>
     </record>
 
-    <!-- Action drama -->
+    <!-- Action Drama -->
+    <record model="ir.actions.act_window" id="book_store_drama_action">
+        <field name="name">Drama</field>
+        <field name="res_model">drama</field>
+    </record>
 
-
+    <!-- Drama Menu -->
+    <menuitem name="Drama"  id="book-drama" parent="book-store-books-menu"
+                action="book_store_drama_action"/>
 </odoo>

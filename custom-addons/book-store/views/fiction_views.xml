@@ -58,6 +58,12 @@
     </record>
 
     <!-- Action fiction -->
+    <record model="ir.actions.act_window" id="book_store_fiction_action">
+        <field name="name">Fiction</field>
+        <field name="res_model">fiction</field>
+    </record>
 
-
+    <!-- Fiction Menu -->
+    <menuitem name="Fiction" id="book-fiction" parent="book-store-books-menu"
+                action="book_store_fiction_action"/>
 </odoo>

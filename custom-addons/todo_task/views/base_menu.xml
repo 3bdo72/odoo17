@@ -2,7 +2,7 @@
 <menuitem
         id="todo_root_menu"
         name="To Do"
-        web_icon="todo.task,static/description/icon.png"
+        web_icon="todo_task,static/description/icon.png"
 />
 <menuitem
         id="todo_main_menu"

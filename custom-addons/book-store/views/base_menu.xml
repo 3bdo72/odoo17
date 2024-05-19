@@ -13,6 +13,7 @@
     <menuitem
             name="Book Store"
             id="book_store_menu_root"
+            web_icon="book-store,static/description/icon.png"
     />
 
     <!-- menu categories -->

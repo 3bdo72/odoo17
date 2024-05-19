@@ -3,6 +3,7 @@
     <menuitem
             id="hospital_root_menu"
             name="Hospital"
+            web_icon="hospital_management,static\description\icon.png"
     />
     <menuitem
             id="patients_main_menu"
