@@ -8,6 +8,7 @@ class HospitalPatient(models.Model):
     name = fields.Char()
     age = fields.Integer()
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], default='male')
+    active = fields.Boolean(default=True)
     # doctor = fields.Many2one('hospital.doctor', ondelete='set null', index=True, null=True)
 
     @api.model
