@@ -14,8 +14,8 @@ class HospitalPatient(models.Model):
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], default='male')
     active = fields.Boolean(default=True)
     address = fields.Text()
-    phone = fields.Char(string='Phone', default='+20 ', required=True)
-    home_phone = fields.Char(string='Home Phone', default='03 ', required=True)
+    phone = fields.Char(string='Phone', default='+20 ', required=True, help="Phone must start with +20", size=14)
+    home_phone = fields.Char(string='Home Phone', default='03 ', required=True, help="Home Phone must start with 03", size=10)
     email = fields.Char()
 
     @api.model
@@ -42,3 +42,10 @@ class HospitalPatient(models.Model):
                 raise ValidationError("Phone number must be in the format +20 XXXXXXXXXX (e.g., +20 1063097699).")
             if record.home_phone and not home_phone_pattern.match(record.home_phone):
                 raise ValidationError("Home phone number must be in the format 03 XXXXXXX (e.g., 03 5411457).")
+
+
+    class Fuction(models.Model):
+        _name = 'hospital.patient.function'
+        _description = 'Hospital Patient Function'
+
+        name = fields.Char()
