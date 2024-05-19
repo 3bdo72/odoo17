@@ -6,6 +6,7 @@
 ToDo Task to Apply for all the previous videos of the odoo playlist
     """,
     'author': "Abdel-Rahman Soliman",
+    'website': "https://github.com/3bdo72",
     'category': 'Custom Modules/Backend', 
     'version': '0.1',
     "license": "AGPL-3",

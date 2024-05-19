@@ -7,7 +7,7 @@
     "author": "Abdelrahman Soliman",
     'category': 'Custom Modules/Backend',
     "sequence": '2',
-    "website": "https://www.yourcompany.com",
+    "website": "https://github.com/3bdo72",
     "version": "1.0.0",  # Valid version for Odoo 17.0.x.y or higher
     "license": "AGPL-3",
     "depends": ["base", "account", "sale_management", 'mail'],  # List dependent modules
