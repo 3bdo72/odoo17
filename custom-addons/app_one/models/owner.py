@@ -11,6 +11,8 @@ class Owner(models.Model):
 
     name = fields.Char(string="Name", required=True)
     phone = fields.Char(string="Phone Number", required=True)
+    email = fields.Char(string="Email")
+    website = fields.Char(string="Website")
     address = fields.Char(string="Address")
     gender = fields.Selection(
         string="Gender",
