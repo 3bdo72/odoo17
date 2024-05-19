@@ -29,11 +29,20 @@
                             <field name="ref"/>
                         </h1>
                     </div>
-                    <group string="Patient Main Information">
-                        <field name="name"/>
-                        <field name="age"/>
-                        <field name="gender"/>
-                        <field name="active" invisible="1"/>
+                    <group>
+                        <group string="Main Information">
+                            <field name="name"/>
+                            <field name="age"/>
+                            <field name="date_of_birth"/>
+                            <field name="gender"/>
+                            <field name="address"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group string="Contact Information">
+                            <field name="phone" placeholder="+20 XXXXXXXXXX" widget="phone"/>
+                            <field name="home_phone" placeholder="03 XXXXXXX" widget="phone"/>
+                            <field name="email" widget="email"/>
+                        </group>
                     </group>
                 </sheet>
             </form>
@@ -70,6 +79,7 @@
         <field name="res_model">hospital.patient</field>
     </record>
 
+    <!-- Patient Menu -->
     <menuitem
             id="patients_menu"
             name="Patient"
