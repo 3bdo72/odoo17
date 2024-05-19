@@ -5,7 +5,8 @@
 
         """,
     "author": "Abdelrahman Soliman",
-    'category': 'Custom Modules/Backend', 
+    'category': 'Custom Modules/Backend',
+    "sequence": '2',
     "website": "https://www.yourcompany.com",
     "version": "1.0.0",  # Valid version for Odoo 17.0.x.y or higher
     "license": "AGPL-3",
