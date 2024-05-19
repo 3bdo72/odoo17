@@ -46,6 +46,10 @@
             <search>
                 <field name="name" string="Patient Name" filter_domain="['|', ('name', 'ilike', self), ('ref', 'ilike', self)]"/>
                 <field name="ref" string="Reference"/>
+                <filter name="filter_male" string="Male" domain="[('gender', '=', 'male')]"/>
+                <filter name="filter_female" string="Female" domain="[('gender', '=', 'female')]"/>
+                <separator/> <!-- Separator between filters to avoid combining them -->
+                <filter name="filter_kids" string="Children" domain="[('age', '&lt;=', 5)]"/> <!-- &lt;= => less than or equal -->
                 <group expand="1" string="Group By">
                     <filter string="Patient Name" name="name" domain="[]" context="{'group_by':'name'}"/>
                     <filter string="Patient Age" name="age" domain="[]" context="{'group_by':'age'}"/>
