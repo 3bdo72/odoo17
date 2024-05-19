@@ -9,6 +9,7 @@
     'website': "https://github.com/3bdo72",
     'category': 'Custom Modules/Backend',
     'version': '0.1',
+    'sequence': '-11',
     "application": True,
     "installable": True,
 

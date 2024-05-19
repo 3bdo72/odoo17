@@ -7,6 +7,7 @@
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="ref"/>
                 <field name="name"/>
                 <field name="age"/>
                 <field name="gender"/>
@@ -22,9 +23,9 @@
             <form string="Hospital Patient">
                 <sheet>
                     <div class="oe_title">
-                        <label for="name"/>
+                        <label for="ref"/>
                         <h1>
-                            <field name="name" placeholder="Name..."/>
+                            <field name="ref" placeholder="Sequence"/>
                         </h1>
                     </div>
                     <group string="Patient Main Information">
@@ -38,17 +39,21 @@
     </record>
 
     <!-- View hospital.patient search -->
-    <!-- <record id="view_hospital_patient_search" model="ir.ui.view">
+    <record id="view_hospital_patient_search" model="ir.ui.view">
         <field name="name">view.hospital.patient.search</field>
         <field name="model">hospital.patient</field>
         <field name="arch" type="xml">
             <search>
+                <field name="name" string="Patient Name" filter_domain="['|', ('name', 'ilike', self), ('ref', 'ilike', self)]"/>
+                <field name="ref" string="Reference"/>
                 <group expand="1" string="Group By">
-                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                    <filter string="Patient Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                    <filter string="Patient Age" name="age" domain="[]" context="{'group_by':'age'}"/>
+                    <filter string="Patient Gender" name="gender" domain="[]" context="{'group_by':'gender'}"/>
                 </group>
             </search>
         </field>
-    </record> -->
+    </record>
 
         <!-- Actions -->
     <!-- Window Actions -->

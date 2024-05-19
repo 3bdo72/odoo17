@@ -4,6 +4,7 @@ class HospitalPatient(models.Model):
     _name = 'hospital.patient'
     _description = 'Hospital Patient'
 
+    ref = fields.Char(string="Reference")
     name = fields.Char()
     age = fields.Integer()
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], default='male')
