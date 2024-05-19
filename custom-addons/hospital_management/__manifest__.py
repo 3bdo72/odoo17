@@ -16,14 +16,14 @@
     'depends': ['base'],
 
     # always loaded
-    'data': [
-        #'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+    "data": [
+        "security/ir.model.access.csv",
+        "views/base.xml",
+        "views/hospital_patient_views.xml"
     ],
     # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
-    ],
+    # 'demo': [
+    #     'demo/demo.xml',
+    # ],
 }
 
