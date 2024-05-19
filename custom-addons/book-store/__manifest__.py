@@ -7,7 +7,7 @@ We Sell Toys, Books, Gifts and Print whatever u want
     """,
     "author": "Abdelrahman Soliman",
     "website": "https://www.yourcompany.com",
-    "category": "Administration",
+    'category': 'Custom Modules/Backend', 
     "version": "0.1",
     # any module necessary for this one to work correctly
     "depends": ["base"],

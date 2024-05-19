@@ -1,7 +1,7 @@
 {
   'name': 'Library Management',
   'version': '1.0.0',  # Valid version for Odoo 17.0.x.y or higher
-  'category': 'Administration',
+  'category': 'Custom Modules/Backend', 
   'author': 'Abdel-Rahman',
   'license': 'AGPL-3',
   'depends': ['base'],  # List dependent modules
