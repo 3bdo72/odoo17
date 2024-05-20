@@ -13,6 +13,7 @@
                 <field name="doctor_id" widget="many2one_avatar"/>
                 <field name="appointment_type"/>
                 <field name="appointment_date"/>
+                <field name="booking_date"/>
                 <field name="status"/>
                 <field name="duration"/>
             </tree>
@@ -39,6 +40,7 @@
                             <field name="doctor_id"/>
                             <field name="appointment_type"/>
                             <field name="appointment_date"/>
+                            <field name="booking_date"/>
                             <field name="status"/>
                             <field name="duration"/>
                         </group>

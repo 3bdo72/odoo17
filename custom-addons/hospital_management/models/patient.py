@@ -10,9 +10,9 @@ class HospitalPatient(models.Model):
 
     ref = fields.Char(string="Reference", default="New", readonly=True)
     name = fields.Char(required=True, tracking=True)
-    age = fields.Integer()
-    date_of_birth = fields.Date()
-    gender = fields.Selection([('male', 'Male'), ('female', 'Female')])
+    age = fields.Integer(tracking=True)
+    date_of_birth = fields.Date(tracking=True)
+    gender = fields.Selection([('male', 'Male'), ('female', 'Female')], tracking=True)
     active = fields.Boolean(default=True)
     address = fields.Text()
     phone = fields.Char(string='Phone', default='+20 ', required=True, help="Phone must start with +20", size=14, tracking=True)

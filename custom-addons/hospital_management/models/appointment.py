@@ -19,7 +19,8 @@ class HospitalAppointment(models.Model):
         ('emergency', 'Emergency'),
         ('other', 'Other'),
         ])
-    appointment_date = fields.Datetime()
+    appointment_date = fields.Datetime(default=fields.Datetime.now)
+    booking_date = fields.Date(default=fields.Date.context_today)
     status = fields.Selection([
         ('scheduled', 'Scheduled'),
         ('confirmed', 'Confirmed'),
