@@ -75,6 +75,9 @@
                     <filter string="Patient Age" name="age" domain="[]" context="{'group_by':'age'}"/>
                     <filter string="Patient Gender" name="gender" domain="[]" context="{'group_by':'gender'}"/>
                 </group>
+                <searchpanel>
+                    <field name="gender" string="Gender" enable_counters="1" icon="fa-venus-mars"/> <!-- Add A Search Panel For Gender -->
+                </searchpanel>
             </search>
         </field>
     </record>
