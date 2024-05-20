@@ -6,6 +6,7 @@ from odoo.exceptions import ValidationError
 class HospitalPatient(models.Model):
     _name = 'hospital.patient'
     _description = 'Hospital Patient'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
     ref = fields.Char(string="Reference", default="New", readonly=True)
     name = fields.Char(required=True)
