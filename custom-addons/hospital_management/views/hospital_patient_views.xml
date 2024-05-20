@@ -95,5 +95,6 @@
             name="Patient"
             parent="patients_main_menu"
             action="action_hospital_patient"
+            sequence="1"
     />
 </odoo>

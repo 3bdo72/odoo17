@@ -35,11 +35,13 @@
             name="Male Patient"
             parent="patients_main_menu"
             action="action_hospital_male_patient"
-    />
-    <menuitem
+            sequence="3"
+            />
+            <menuitem
             id="female_patients_menu"
             name="Female Patient"
             parent="patients_main_menu"
             action="action_hospital_female_patient"
+            sequence="4"
     />
 </odoo>

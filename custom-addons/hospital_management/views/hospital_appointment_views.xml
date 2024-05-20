@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View hospital.appointment View Tree -->
+    <record id="view_hospital_appointment_tree" model="ir.ui.view">
+        <field name="name">view.hospital.appointment.tree</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="doctor_id" widget="many2one_avatar"/>
+                <field name="appointment_type"/>
+                <field name="appointment_date"/>
+                <field name="status"/>
+                <field name="duration"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- View hospital.appointment form -->
+    <record id="view_hospital_appointment_form" model="ir.ui.view">
+        <field name="name">view.hospital.appointment.form</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Hospital Appointment">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="ref"/>
+                        <h1>
+                            <field name="ref" placeholder="Sequence"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Appointment Information">
+                            <field name="name"/>
+                            <field name="patient_id"/>
+                            <field name="doctor_id"/>
+                            <field name="appointment_type"/>
+                            <field name="appointment_date"/>
+                            <field name="status"/>
+                            <field name="duration"/>
+                        </group>
+                        <group string="Appointment Extra Details">
+                            <field name="urgency_level"/>
+                            <field name="notes"/>
+                            <field name="internal_notes"/>
+                            <field name="attachments"/>
+                            <field name="pre_consolation_questions"/>
+                            <field name="follow_up_appointments"/>
+                            <field name="payment_status"/>
+                            <field name="insurance"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View hospital.appointment search -->
+    <record id="view_hospital_appointment_search" model="ir.ui.view">
+        <field name="name">view.hospital.appointment.search</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action hospital.appointment -->
+    <record id="action_hospital_appointment" model="ir.actions.act_window">
+        <field name="name">Hospital Appointment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Hospital Appointment.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu hospital.appointment -->
+    <menuitem
+            id="appointments_menu"
+            name="Appointment"
+            parent="patients_main_menu"
+            action="action_hospital_appointment"
+            sequence="2"
+    />
+</odoo>

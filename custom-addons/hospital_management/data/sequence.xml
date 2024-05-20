@@ -7,5 +7,11 @@
             <field name="prefix">HP</field>
             <field name="padding">3</field>
         </record>
+        <record id="appointment_ref" model="ir.sequence">
+            <field name="name">Appointment Seq.</field>
+            <field name="code">appointment_ref</field>
+            <field name="prefix">APPT</field>
+            <field name="padding">3</field>
+        </record>
     </data>
 </odoo>

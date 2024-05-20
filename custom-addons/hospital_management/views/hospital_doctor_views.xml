@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View hospital.doctor View Tree -->
+    <record id="view_hospital_doctor_tree" model="ir.ui.view">
+        <field name="name">view.hospital.doctor.tree</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View hospital.doctor form -->
+    <record id="view_hospital_doctor_form" model="ir.ui.view">
+        <field name="name">view.hospital.doctor.form</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <form string="Hospital Doctor">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="image"/>
+                        <h1>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Doctor Information">
+                            <field name="name" placeholder="Name..."/>
+                            <field name="gender"/>
+                            <field name="employee_id"/>
+                            <field name="department_id"/>
+                        </group>
+                        <group string="Contact and Availability">
+                            <field name="phone" placeholder="+20 XXXXXXXXXX" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <!-- <field name="availability"/> -->
+                        </group>
+                        <group string="Medical Credentials and Experience">
+                            <field name="specialization"/>
+                            <field name="license_number"/>
+                            <field name="years_of_experience"/>
+                            <field name="education"/>
+                            <field name="certifications"/>
+                        </group>
+                        <group string="Additional Considerations">
+                            <field name="biography"/>
+                            <field name="ratings_and_reviews"/>
+                            <field name="internal_notes"/>
+                            <field name="languages"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View hospital.doctor search -->
+    <record id="view_hospital_doctor_search" model="ir.ui.view">
+        <field name="name">view.hospital.doctor.search</field>
+        <field name="model">hospital.doctor</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action hospital.doctor -->
+    <record id="action_hospital_doctor" model="ir.actions.act_window">
+        <field name="name">Hospital Doctor</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.doctor</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Hospital Doctor.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu hospital.doctor -->
+    <menuitem
+        id="doctor_menu"
+        name="Doctor"
+        parent="doctor_main_menu"
+        action="action_hospital_doctor"
+    />
+</odoo>
