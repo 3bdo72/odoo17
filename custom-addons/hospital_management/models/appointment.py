@@ -4,10 +4,11 @@ class HospitalAppointment(models.Model):
     _name = 'hospital.appointment'
     _description = 'Hospital Appointment'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _rec_name = 'ref'
 
     ref = fields.Char(string="Reference", default="New", readonly=True)
     #Core Appointment Fields:
-    name = fields.Char()
+    gender = fields.Selection([('male', 'Male'), ('female', 'Female')], related='patient_id.gender', readonly=True)
     patient_id = fields.Many2one('hospital.patient')
     doctor_id = fields.Many2one('hospital.doctor')
     appointment_type = fields.Selection([

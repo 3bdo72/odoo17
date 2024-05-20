@@ -8,8 +8,8 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="ref"/>
-                <field name="name"/>
                 <field name="patient_id"/>
+                <field name="gender"/>
                 <field name="doctor_id" widget="many2one_avatar"/>
                 <field name="appointment_type"/>
                 <field name="appointment_date"/>
@@ -35,8 +35,8 @@
                     </div>
                     <group>
                         <group string="Appointment Information">
-                            <field name="name"/>
                             <field name="patient_id"/>
+                            <field name="gender"/>
                             <field name="doctor_id"/>
                             <field name="appointment_type"/>
                             <field name="appointment_date"/>
@@ -67,7 +67,7 @@
         <field name="arch" type="xml">
             <search>
                 <group expand="1" string="Group By">
-                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                    <filter string="Gender" name="gender" domain="[]" context="{'group_by':'gender'}"/>
                 </group>
             </search>
         </field>
