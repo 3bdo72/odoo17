@@ -8,7 +8,7 @@
         <field name="res_model">hospital.patient</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[('gender', '=', 'male')]</field>
-        <field name="context">{}</field>
+        <field name="context">{'default_gender': 'male'}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
                 There is no examples click here to add new Hospital Patient .
@@ -21,7 +21,7 @@
         <field name="res_model">hospital.patient</field>
         <field name="view_mode">tree,form</field>
         <field name="domain">[('gender', '=', 'female')]</field>
-        <field name="context">{}</field>
+        <field name="context">{'default_gender': 'female'}</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
                 There is no examples click here to add new Hospital Patient .

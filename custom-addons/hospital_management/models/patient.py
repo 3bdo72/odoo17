@@ -11,7 +11,7 @@ class HospitalPatient(models.Model):
     name = fields.Char(required=True)
     age = fields.Integer()
     date_of_birth = fields.Date()
-    gender = fields.Selection([('male', 'Male'), ('female', 'Female')], default='male')
+    gender = fields.Selection([('male', 'Male'), ('female', 'Female')])
     active = fields.Boolean(default=True)
     address = fields.Text()
     phone = fields.Char(string='Phone', default='+20 ', required=True, help="Phone must start with +20", size=14)
@@ -24,7 +24,7 @@ class HospitalPatient(models.Model):
             vals['ref'] = self.env['ir.sequence'].next_by_code('patient_ref') or 'New'
         return super(HospitalPatient, self).create(vals)
 
-        # Another way of creating sequence number 
+    # Another way of creating sequence number 
     # @api.model
     # def create(self, vals):
     #     res = super(HospitalPatient, self).create(vals)
