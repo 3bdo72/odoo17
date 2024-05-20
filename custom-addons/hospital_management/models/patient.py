@@ -9,15 +9,15 @@ class HospitalPatient(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     ref = fields.Char(string="Reference", default="New", readonly=True)
-    name = fields.Char(required=True)
+    name = fields.Char(required=True, tracking=True)
     age = fields.Integer()
     date_of_birth = fields.Date()
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')])
     active = fields.Boolean(default=True)
     address = fields.Text()
-    phone = fields.Char(string='Phone', default='+20 ', required=True, help="Phone must start with +20", size=14)
-    home_phone = fields.Char(string='Home Phone', default='03 ', required=True, help="Home Phone must start with 03", size=10)
-    email = fields.Char()
+    phone = fields.Char(string='Phone', default='+20 ', required=True, help="Phone must start with +20", size=14, tracking=True)
+    home_phone = fields.Char(string='Home Phone', default='03 ', required=True, help="Home Phone must start with 03", size=10, tracking=True)
+    email = fields.Char(tracking=True)
 
     @api.model
     def create(self, vals):
