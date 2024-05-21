@@ -1,3 +1,4 @@
+from datetime import date
 from odoo import models, fields, api
 import re # for the regex
 from odoo.exceptions import ValidationError
@@ -10,8 +11,8 @@ class HospitalPatient(models.Model):
 
     ref = fields.Char(string="Reference", default="New", readonly=True)
     name = fields.Char(required=True, tracking=True)
-    age = fields.Integer(tracking=True)
     date_of_birth = fields.Date(tracking=True)
+    age = fields.Integer(tracking=True, compute='_compute_age', store=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], tracking=True)
     active = fields.Boolean(default=True)
     address = fields.Text()
@@ -19,20 +20,15 @@ class HospitalPatient(models.Model):
     home_phone = fields.Char(string='Home Phone', default='03 ', required=True, help="Home Phone must start with 03", size=10, tracking=True)
     email = fields.Char(tracking=True)
 
+    # Generate Reference Number when Patient is Created
     @api.model
     def create(self, vals):
         if vals.get('ref', 'New') == 'New':
             vals['ref'] = self.env['ir.sequence'].next_by_code('patient_ref') or 'New'
         return super(HospitalPatient, self).create(vals)
 
-    # Another way of creating sequence number 
-    # @api.model
-    # def create(self, vals):
-    #     res = super(HospitalPatient, self).create(vals)
-    #     if res.ref == 'New':
-    #         res.ref = self.env["ir.sequence"].next_by_code("patient_ref")
-    #     return res
 
+    # Validate Phone Numbers for +20 and 03
     @api.constrains('phone', 'home_phone')
     def _check_phone_numbers(self):
         phone_pattern = re.compile(r'^\+20 \d{10}$')
@@ -44,9 +40,14 @@ class HospitalPatient(models.Model):
             if record.home_phone and not home_phone_pattern.match(record.home_phone):
                 raise ValidationError("Home phone number must be in the format 03 XXXXXXX (e.g., 03 5411457).")
 
-
-    class Fuction(models.Model):
-        _name = 'hospital.patient.function'
-        _description = 'Hospital Patient Function'
-
-        name = fields.Char()
+    # Compute Age from Date of Birth
+    @api.depends('date_of_birth')
+    def _compute_age(self):
+        today = date.today()
+        for rec in self:
+            if rec.date_of_birth:
+                birth_date = rec.date_of_birth
+                age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
+                rec.age = age
+            else:
+                rec.age = 0

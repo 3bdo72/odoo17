@@ -32,8 +32,8 @@
                     <group>
                         <group string="Main Information">
                             <field name="name"/>
-                            <field name="age"/>
                             <field name="date_of_birth"/>
+                            <field name="age"/>
                             <field name="gender"/>
                             <field name="address"/>
                             <field name="active" invisible="1"/>
