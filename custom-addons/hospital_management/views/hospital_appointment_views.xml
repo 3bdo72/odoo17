@@ -55,6 +55,39 @@
                             <field name="insurance"/>
                         </group>
                     </group>
+                    <!-- Notebook -->
+                    <notebook>
+                        <page string="Medicines">
+                            <field name="prescription_ids">
+                                <tree editable="bottom">
+                                    <field name="item_number"/>
+                                    <field name="medicine"/>
+                                    <field name="dosage"/>
+                                    <field name="frequency"/>
+                                    <field name="duration"/>
+                                    <field name="instructions"/>
+                                    <field name="route" optional="1"/>
+                                    <field name="refills" optional="1"/>
+                                    <field name="dispense_unit" optional="1"/>
+                                    <field name="special_instructions" optional="1"/>
+                                    <field name="note" optional="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Allergies">
+                            <field name="allergy_ids">
+                                <tree editable="bottom">
+                                    <field name="allergy_number"/>
+                                    <field name="allergy_name"/>
+                                    <field name="reaction"/>
+                                    <field name="severity"/>
+                                    <field name="onset"/>
+                                    <field name="trigger"/>
+                                    <field name="note"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>

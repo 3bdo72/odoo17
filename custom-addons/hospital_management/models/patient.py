@@ -19,6 +19,7 @@ class HospitalPatient(models.Model):
     phone = fields.Char(string='Phone', default='+20 ', required=True, help="Phone must start with +20", size=14, tracking=True)
     home_phone = fields.Char(string='Home Phone', default='03 ', required=True, help="Home Phone must start with 03", size=10, tracking=True)
     email = fields.Char(tracking=True)
+    website = fields.Char(tracking=True)
 
     # Generate Reference Number when Patient is Created
     @api.model

@@ -42,16 +42,17 @@
                             <field name="phone" placeholder="+20 XXXXXXXXXX" widget="phone"/>
                             <field name="home_phone" placeholder="03 XXXXXXX" widget="phone"/>
                             <field name="email" widget="email"/>
+                            <field name="website" widget="url"/>
                         </group>
                     </group>
                 </sheet>
-            <!-- Chatter -->
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" groups="base.group_user"/>
-                    <field name="message_ids"/>
-                    <field name="activity_ids"/>
-                    <field name="activity_summary"/>
-                </div>
+                    <!-- Chatter -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" groups="base.group_user"/>
+                        <field name="message_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="activity_summary"/>
+                    </div>
             </form>
         </field>
     </record>
