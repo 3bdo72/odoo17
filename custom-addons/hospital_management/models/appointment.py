@@ -9,6 +9,7 @@ class HospitalAppointment(models.Model):
     ref = fields.Char(string="Reference", default="New", readonly=True)
     #Core Appointment Fields:
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], related='patient_id.gender', readonly=True)
+    age = fields.Integer(readonly=True, store=True)
     patient_id = fields.Many2one('hospital.patient')
     doctor_id = fields.Many2one('hospital.doctor')
     appointment_type = fields.Selection([
@@ -63,11 +64,15 @@ class HospitalAppointment(models.Model):
             vals['ref'] = self.env['ir.sequence'].next_by_code('appointment_ref') or 'New'
         return super(HospitalAppointment, self).create(vals)
 
+    @api.onchange('patient_id')
+    def _onchange_patient_id(self):
+        self.age = self.patient_id.age
+
 class MedicalPrescriptionLine(models.Model):
     _name = 'medical.prescription.line'
     _description = 'Medical Prescriptions'
 
-    item_number = fields.Char(string="Item", required=True)
+    counter = fields.Integer(string="Counter", readonly=True, default=0)
     medicine = fields.Char(string="Medicine", required=True)
     medicine_appointment_id = fields.Many2one('hospital.appointment', string="Patient", domain="[('active', '=', True)]")
     doctor_id = fields.Many2one('res.partner', string="Doctor", domain="[('is_doctor', '=', True)]")
@@ -98,7 +103,7 @@ class AllergyLine(models.Model):
     _name = 'allergy.line'
     _description = 'Allergies'
 
-    allergy_number = fields.Integer(string="Allergy Number", required=True)
+    counter = fields.Integer(string="Counter", readonly=True, default=0)
     allergy_name = fields.Char(string="Allergy", required=True)
     allergy_appointment_id = fields.Many2one('hospital.appointment', string="Patient")
 

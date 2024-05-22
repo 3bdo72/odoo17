@@ -8,7 +8,7 @@ class HospitalDoctor(models.Model):
     #Core Doctor Information:
     name = fields.Char(tracking=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')])
-    image = fields.Image(tracking=True)
+    image = fields.Image()
     employee_id = fields.Many2one('hr.employee')
     department_id = fields.Many2one('hr.department')
 
@@ -30,3 +30,11 @@ class HospitalDoctor(models.Model):
     languages = fields.Many2many('res.lang')
     ratings_and_reviews = fields.Text()
     internal_notes = fields.Text()
+
+    priority = fields.Selection([
+        ('0', '0 Star'),
+        ('1', '1 Stars'),
+        ('2', '2 Stars'),
+        ('3', '3 Stars'),
+        ('4', '4 Stars'),
+        ('5', '5 Stars')], string="Priority")

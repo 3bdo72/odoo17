@@ -28,7 +28,8 @@
                     <div class="oe_title">
                         <label for="image"/>
                         <h1>
-                            <field name="image" widget="image" class="oe_avatar"/>
+                            <field name="image" widget="image" class="oe_avatar d-flex justify-content-end"/>
+                            <field name="priority" widget="priority"/>
                         </h1>
                     </div>
                     <group>
