@@ -72,7 +72,7 @@ class MedicalPrescriptionLine(models.Model):
     _name = 'medical.prescription.line'
     _description = 'Medical Prescriptions'
 
-    counter = fields.Integer(string="Counter", readonly=True, default=0)
+    counter = fields.Integer(string="Counter", readonly=True, compute='_compute_sequence')
     medicine = fields.Char(string="Medicine", required=True)
     medicine_appointment_id = fields.Many2one('hospital.appointment', string="Patient", domain="[('active', '=', True)]")
     doctor_id = fields.Many2one('res.partner', string="Doctor", domain="[('is_doctor', '=', True)]")
@@ -98,12 +98,19 @@ class MedicalPrescriptionLine(models.Model):
     special_instructions = fields.Text(string="Special Instructions")
     note = fields.Text(string="Note")
 
+    @api.depends('medicine_appointment_id')
+    def _compute_sequence(self):
+        for rec in self:
+            counter = 1
+            for line in rec.medicine_appointment_id.prescription_ids:
+                line.counter = counter
+                counter += 1
 
 class AllergyLine(models.Model):
     _name = 'allergy.line'
     _description = 'Allergies'
 
-    counter = fields.Integer(string="Counter", readonly=True, default=0)
+    counter = fields.Integer(string="Counter", readonly=True, compute='_compute_sequence')
     allergy_name = fields.Char(string="Allergy", required=True)
     allergy_appointment_id = fields.Many2one('hospital.appointment', string="Patient")
 
@@ -121,3 +128,12 @@ class AllergyLine(models.Model):
     note = fields.Text(string="Note")
     management = fields.Text(string="Management")
     reference = fields.Char(string="Reference")
+
+    # Compute the sequence for allergy lines based on the related appointment
+    @api.depends('allergy_appointment_id')
+    def _compute_sequence(self):
+        for rec in self:
+            counter = 1
+            for line in rec.allergy_appointment_id.allergy_ids:
+                line.counter = counter
+                counter += 1
