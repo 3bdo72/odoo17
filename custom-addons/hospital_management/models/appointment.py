@@ -7,9 +7,10 @@ class HospitalAppointment(models.Model):
     _rec_name = 'ref'
 
     ref = fields.Char(string="Reference", default="New", readonly=True)
+    active = fields.Boolean(string="Active", default=True)
     #Core Appointment Fields:
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], related='patient_id.gender', readonly=True)
-    age = fields.Integer(readonly=True, store=True)
+    age = fields.Integer(readonly=True, compute='_compute_age' , store=True)
     patient_id = fields.Many2one('hospital.patient')
     doctor_id = fields.Many2one('hospital.doctor')
     appointment_type = fields.Selection([
@@ -71,9 +72,10 @@ class HospitalAppointment(models.Model):
             vals['ref'] = self.env['ir.sequence'].next_by_code('appointment_ref') or 'New'
         return super(HospitalAppointment, self).create(vals)
 
-    @api.onchange('patient_id')
-    def _onchange_patient_id(self):
-        self.age = self.patient_id.age
+    @api.depends('patient_id')
+    def _compute_age(self):
+        for rec in self:
+            rec.age = rec.patient_id.age
 
     def action_draft(self):
         for rec in self:

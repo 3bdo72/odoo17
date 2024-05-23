@@ -28,6 +28,10 @@
             <form string="Hospital Appointment">
                 <sheet>
                     <header>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>  <!-- Archived Logo-->
+                    <widget name="web_ribbon" title="Draft" bg_color="text-bg-secondary" invisible="status != 'draft'"/>  <!-- Draft Logo-->
+                    <widget name="web_ribbon" title="In Consolation" bg_color="text-bg-info" invisible="status != 'in_consolation'"/>  <!-- In Consilation Logo-->
+                    <widget name="web_ribbon" title="Done" bg_color="text-bg-success" invisible="status != 'done'"/>  <!-- Done Logo-->
                         <button name="action_draft"
                             string="Draft"
                             type="object"
@@ -64,6 +68,7 @@
                             <field name="appointment_date"/>
                             <field name="booking_date"/>
                             <field name="duration"/>
+                            <field name="active" widget="boolean"/>
                         </group>
                         <group string="Appointment Extra Details">
                             <field name="urgency_level"/>
