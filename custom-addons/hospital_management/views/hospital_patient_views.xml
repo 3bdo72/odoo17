@@ -11,6 +11,10 @@
                 <field name="name"/>
                 <field name="age"/>
                 <field name="gender"/>
+                <field name="phone" placeholder="+20 XXXXXXXXXX" widget="phone"/>
+                <field name="home_phone" placeholder="03 XXXXXXX" widget="phone"/>
+                <field name="email" widget="email"/>
+                <field name="website" widget="url"/>
             </tree>
         </field>
     </record>

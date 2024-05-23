@@ -57,6 +57,12 @@ class HospitalAppointment(models.Model):
     prescription_ids = fields.One2many('medical.prescription.line', 'medicine_appointment_id', string="Medicines")
     allergy_ids = fields.One2many('allergy.line', 'allergy_appointment_id', string="Allergies")
 
+    # Status
+    status = fields.Selection([
+        ('draft', 'Draft'),
+        ('in_consolation', 'In Consolation'),
+        ('done', 'Done'),
+    ])
 
     @api.model
     def create(self, vals):
@@ -67,6 +73,18 @@ class HospitalAppointment(models.Model):
     @api.onchange('patient_id')
     def _onchange_patient_id(self):
         self.age = self.patient_id.age
+
+    def action_draft(self):
+        for rec in self:
+            rec.status = 'draft'
+
+    def action_in_consolation(self):
+        for rec in self:
+            rec.status = 'in_consolation'
+
+    def action_done(self):
+        for rec in self:
+            rec.status = 'done'
 
 class MedicalPrescriptionLine(models.Model):
     _name = 'medical.prescription.line'
