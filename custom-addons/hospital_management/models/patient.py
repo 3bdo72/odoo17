@@ -10,12 +10,12 @@ class HospitalPatient(models.Model):
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     ref = fields.Char(string="Reference", default="New", readonly=True)
-    name = fields.Char(required=True, tracking=True)
-    date_of_birth = fields.Date(tracking=True)
+    name = fields.Char(required=True, tracking=True, help="Name of the Patient")
+    date_of_birth = fields.Date(tracking=True, help="Date of Birth")
     age = fields.Integer(tracking=True, compute='_compute_age', store=True)
-    gender = fields.Selection([('male', 'Male'), ('female', 'Female')], tracking=True)
+    gender = fields.Selection([('male', 'Male'), ('female', 'Female')], tracking=True, help="Gender of the Patient")
     active = fields.Boolean(default=True)
-    address = fields.Text()
+    address = fields.Text(help="Address of the Patient")
     phone = fields.Char(string='Phone', default='+20 ', required=True, help="Phone must start with +20", size=14, tracking=True)
     home_phone = fields.Char(string='Home Phone', default='03 ', required=True, help="Home Phone must start with 03", size=10, tracking=True)
     email = fields.Char(tracking=True)
