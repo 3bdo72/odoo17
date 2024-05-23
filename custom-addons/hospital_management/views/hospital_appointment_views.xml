@@ -32,7 +32,7 @@
                             string="Draft"
                             type="object"
                             class="btn btn-secondary"
-                            invisible="status in ('draft')"
+                            invisible="status in ('draft', 'canceled')"
                         />
                         <button name="action_in_consolation"
                             string="In Consilation"
@@ -63,7 +63,6 @@
                             <field name="doctor_id"/>
                             <field name="appointment_date"/>
                             <field name="booking_date"/>
-                            <field name="status"/>
                             <field name="duration"/>
                         </group>
                         <group string="Appointment Extra Details">
@@ -142,6 +141,16 @@
             </p>
         </field>
     </record>
+
+    <!-- Server Actions -->
+    <record id="appointoment_canceled" model="ir.actions.server">
+        <field name='name'>Appointment Canceled</field>
+        <field name="model_id" ref="model_hospital_appointment"/>
+        <field name="binding_model_id" ref="model_hospital_appointment"/>
+        <field name="state">code</field>
+        <field name="code"> action = records.action_canceled() </field>
+    </record>
+
 
     <!-- Menu hospital.appointment -->
     <menuitem

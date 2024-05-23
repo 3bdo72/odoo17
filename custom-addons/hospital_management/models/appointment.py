@@ -62,6 +62,7 @@ class HospitalAppointment(models.Model):
         ('draft', 'Draft'),
         ('in_consolation', 'In Consolation'),
         ('done', 'Done'),
+        ('canceled', 'Canceled'),
     ])
 
     @api.model
@@ -85,6 +86,10 @@ class HospitalAppointment(models.Model):
     def action_done(self):
         for rec in self:
             rec.status = 'done'
+
+    def action_canceled(self):
+        for rec in self:
+            rec.status = 'canceled'
 
 class MedicalPrescriptionLine(models.Model):
     _name = 'medical.prescription.line'
