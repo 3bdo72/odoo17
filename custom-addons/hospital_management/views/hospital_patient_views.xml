@@ -27,7 +27,7 @@
             <form string="Hospital Patient">
                 <sheet>
                     <header>
-                        <button string="Our Doctors" name="%(hospital_management.action_hospital_doctor)d" type="action" class="oe_highlight"/>
+                        <button string="Our Doctors" name="%(hospital_management.action_hospital_doctor)d" type="action" class="oe_highlight" confirm="Are you sure you want to see our doctors?"/>
                     </header>
                     <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>  <!-- Archived Logo-->
                     <div class="oe_title">
