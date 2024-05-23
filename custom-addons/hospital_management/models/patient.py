@@ -52,3 +52,12 @@ class HospitalPatient(models.Model):
                 rec.age = age
             else:
                 rec.age = 0
+
+    def action_rainbow(self):
+            return {
+        'effect': {
+            'fadeout': 'slow',
+            'message': 'Congratulations, You are Rainbow Man',
+            'type': 'rainbow_man',
+        }
+    }
