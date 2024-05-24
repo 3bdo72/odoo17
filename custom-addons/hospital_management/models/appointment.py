@@ -96,7 +96,9 @@ class HospitalAppointment(models.Model):
 class MedicalPrescriptionLine(models.Model):
     _name = 'medical.prescription.line'
     _description = 'Medical Prescriptions'
+    _order = 'handle, id'
 
+    handle = fields.Integer(default="1")
     counter = fields.Integer(string="Counter", readonly=True, compute='_compute_sequence')
     medicine = fields.Char(string="Medicine", required=True)
     medicine_appointment_id = fields.Many2one('hospital.appointment', string="Patient", domain="[('active', '=', True)]")
@@ -134,7 +136,9 @@ class MedicalPrescriptionLine(models.Model):
 class AllergyLine(models.Model):
     _name = 'allergy.line'
     _description = 'Allergies'
+    _order = 'handle, id'
 
+    handle = fields.Integer(default="1")
     counter = fields.Integer(string="Counter", readonly=True, compute='_compute_sequence')
     allergy_name = fields.Char(string="Allergy", required=True)
     allergy_appointment_id = fields.Many2one('hospital.appointment', string="Patient")

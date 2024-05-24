@@ -25,7 +25,7 @@
         <field name="arch" type="xml">
             <form string="Hospital Doctor">
                 <sheet>
-                    <field name="x_avatar_image" widget="image" class="oe_avatar ml-3 mr-3" options="{&quot;size&quot;:[0,120]}"/>
+                    <field name="x_avatar_image" widget="image" class="oe_avatar ml-3 mr-3" options="{&quot;size&quot;:[0,180]}"/>
                     <div class="oe_title">
                         <h1>
                             <field name="priority" widget="priority"/>
