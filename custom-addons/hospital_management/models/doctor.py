@@ -8,7 +8,7 @@ class HospitalDoctor(models.Model):
     #Core Doctor Information:
     name = fields.Char(tracking=True)
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')])
-    image = fields.Image()
+    x_avatar_image = fields.Binary()
     employee_id = fields.Many2one('hr.employee')
     department_id = fields.Many2one('hr.department')
 

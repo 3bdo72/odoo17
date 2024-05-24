@@ -49,3 +49,6 @@ package.json
 /man/
 /share/
 /src/
+
+# Ignore all files in the ent-addons directory
+/ent-addons/*
