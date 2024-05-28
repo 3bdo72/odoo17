@@ -6,7 +6,7 @@
         <field name="name">view.hospital.appointment.tree</field>
         <field name="model">hospital.appointment</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree decoration-success="status == 'done'" decoration-warning="status == 'in_consolation'" decoration-danger="status == 'canceled'" decoration-info="status == 'draft'">
                 <field name="ref"/>
                 <field name="patient_id"/>
                 <field name="gender"/>
@@ -14,7 +14,7 @@
                 <field name="appointment_type"/>
                 <field name="appointment_date"/>
                 <field name="booking_date"/>
-                <field name="status" widget="badge" decoration-success="status == 'done'" decoration-warning="status == 'in_consolation'" decoration-danger="status == 'canceled'" />
+                <field name="status" widget="badge" decoration-success="status == 'done'" decoration-warning="status == 'in_consolation'" decoration-danger="status == 'canceled'" decoration-info="status == 'draft'" />
                 <field name="duration"/>
             </tree>
         </field>
