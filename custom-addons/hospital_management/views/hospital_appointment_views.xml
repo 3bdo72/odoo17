@@ -16,7 +16,7 @@
                 <field name="booking_date"/>
                 <field name="status" widget="badge" decoration-success="status == 'done'" decoration-warning="status == 'in_consolation'" decoration-danger="status == 'canceled'" decoration-info="status == 'draft'" />
                 <field name="activity_ids" widget="list_activity"/>
-                <field name="duration"/>
+                <field name="duration" optional="1"/>
             </tree>
         </field>
     </record>
