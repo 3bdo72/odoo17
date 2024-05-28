@@ -12,7 +12,7 @@ class HospitalAppointment(models.Model):
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')], related='patient_id.gender', readonly=True)
     age = fields.Integer(readonly=True, compute='_compute_age' , store=True)
     patient_id = fields.Many2one('hospital.patient')
-    doctor_id = fields.Many2one('hospital.doctor')
+    doctor_id = fields.Many2one('res.users')
     appointment_type = fields.Selection([
         ('general', 'General Consultation'),
         ('cardiology', 'Cardiology'),
