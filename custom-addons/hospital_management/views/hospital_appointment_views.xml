@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
+    
     <!-- View hospital.appointment View Tree -->
     <record id="view_hospital_appointment_tree" model="ir.ui.view">
         <field name="name">view.hospital.appointment.tree</field>
@@ -15,6 +15,7 @@
                 <field name="appointment_date"/>
                 <field name="booking_date"/>
                 <field name="status" widget="badge" decoration-success="status == 'done'" decoration-warning="status == 'in_consolation'" decoration-danger="status == 'canceled'" decoration-info="status == 'draft'" />
+                <field name="activity_ids" widget="list_activity"/>
                 <field name="duration"/>
             </tree>
         </field>
@@ -117,6 +118,13 @@
                         </page>
                     </notebook>
                 </sheet>
+                <!-- Chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                    <field name="activity_summary"/>
+                </div>
             </form>
         </field>
     </record>
