@@ -75,7 +75,7 @@
                     </div>
                     <group>
                         <group string="Required Info.">
-                            <field name="description" groups="app_one.property_manager_group"/>
+                            <field name="description"/>
                             <field name="location" string="Property Location" readonly="state == 'closed'"/>
                             <field name="postcode" readonly="state == 'closed'"/>
                             <field name="date_availability" readonly="state == 'closed'"/>

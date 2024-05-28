@@ -16,7 +16,7 @@ class Property(models.Model):
     expected_selling_date = fields.Date()
     is_late = fields.Boolean()  #compute="_compute_is_late"
 
-    location = fields.Char(string="Location" , groups="app_one.property_manager_group")
+    location = fields.Char(string="Location")
     active = fields.Boolean(string="Active", default=True) # Archive field
 
     expected_price = fields.Float()  # Allow null value for expected_price
