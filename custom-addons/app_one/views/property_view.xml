@@ -36,9 +36,9 @@
                     <div name="button_box" class="oe_button_box">
                         <button name="action_open_related_owner"
                                 type="object"
-                                icon="fa-user" 
+                                icon="fa-user"
                                 invisible="not owner_id"
-                                string="Open Related Owner" 
+                                string="Open Related Owner"
                                 />
                     </div>
                     <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>  <!-- Archived Logo-->
@@ -122,6 +122,15 @@
                                 </tree>
                             </field>
                         </page>
+                        <page string="Garden">
+                            <field name="garden_line_ids" readonly="state == 'closed'">
+                                <tree editable="bottom">
+                                    <field name="description"/>
+                                    <field name="area"/>
+                                    <field name="area_squared"/>
+                                </tree>
+                            </field>
+                        </page>
                     </notebook>
                 </sheet>
                 <div class="oe_chatter">
@@ -157,7 +166,7 @@
         <field name='name'>Property</field>
         <field name='res_model'>property</field>
     </record>
-    
+
     <!-- Server Actions -->
     <record id="property_closed" model="ir.actions.server">
         <field name='name'>Closed</field>

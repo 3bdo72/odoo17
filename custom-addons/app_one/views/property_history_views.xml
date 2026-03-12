@@ -25,12 +25,12 @@
                     <group>
                         <group>
                             <field name="user_id"/>
-                            <field name="property_id"/>   
+                            <field name="property_id"/>
                         </group>
                         <group>
                             <field name="old_state"/>
-                            <field name="new_state"/>        
-                            <field name="reason"/>        
+                            <field name="new_state"/>
+                            <field name="reason"/>
                         </group>
                     </group>
                     <notebook>
@@ -47,6 +47,15 @@
                                 <tree>
                                     <field name="description"/>
                                     <field name="area"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Garden">
+                            <field name="garden_history_line_ids" readonly="1">
+                                <tree>
+                                    <field name="description"/>
+                                    <field name="area"/>
+                                    <field name="area_squared"/>
                                 </tree>
                             </field>
                         </page>

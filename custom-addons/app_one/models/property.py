@@ -10,7 +10,7 @@ class Property(models.Model):
     ref = fields.Char(default = 'New', readonly = True)
     name = fields.Char(required=True)  # Ensure required field
     description = fields.Text()
-    postcode = fields.Char(tracking=1) 
+    postcode = fields.Char(tracking=1)
 
     date_availability = fields.Date(tracking=1)
     expected_selling_date = fields.Date()
@@ -86,6 +86,8 @@ class Property(models.Model):
 
     bedroom_line_ids = fields.One2many("property.bedroom.line", "bed_property_id")
     bathroom_line_ids = fields.One2many("property.bathroom.line", "bath_property_id")
+    # garden lines (new notebook page)
+    garden_line_ids = fields.One2many("property.garden.line", "garden_property_id")
 
     @api.depends("create_time")
     def _compute_next_time(self):
@@ -184,7 +186,7 @@ class Property(models.Model):
             if rec.expected_selling_date and rec.expected_selling_date < fields.Date.today():
                 rec.is_late = True
 
-# 
+#
     def action(self):
         print(self.env['property'].search(['|', ('name', 'ilike', 'Property'), ('garage', '!=', True)]))
 
@@ -205,6 +207,7 @@ class Property(models.Model):
                 'reason': reason or "",
                 'bedroom_history_line_ids': [(0, 0, {'description': line.description, 'area': line.area}) for line in rec.bedroom_line_ids],
                 'bathroom_history_line_ids': [(0, 0, {'description': line.description, 'area': line.area}) for line in rec.bathroom_line_ids],
+                'garden_history_line_ids': [(0, 0, {'description': line.description, 'area': line.area, 'area_squared': line.area_squared}) for line in rec.garden_line_ids],
             })
 
     def action_open_change_state_wizard(self):
@@ -212,7 +215,7 @@ class Property(models.Model):
         action['context'] = {'default_property_id': self.id}
         return action
 
-    def action_open_related_owner(self):   # Smart Button Action - Open Related Record - Owner Record 
+    def action_open_related_owner(self):   # Smart Button Action - Open Related Record - Owner Record
         action = self.env["ir.actions.actions"]._for_xml_id("app_one.owner_action")
         view_id = self.env.ref('app_one.owner_view_form').id
         action['res_id'] = self.owner_id.id
@@ -222,16 +225,30 @@ class Property(models.Model):
 class PropertyBedroomLine(models.Model):
     _name = "property.bedroom.line"
     _description = "Property Bedroom Line"
-    
+
     bed_property_id = fields.Many2one("property")
     area = fields.Float()
     description = fields.Char()
-    
+
 class PropertyBathroomLine(models.Model):
     _name = "property.bathroom.line"
     _description = "Property Bathroom Line"
-    
+
     bath_property_id = fields.Many2one("property")
     area = fields.Float()
     description = fields.Char()
 
+
+class PropertyGardenLine(models.Model):
+    _name = "property.garden.line"
+    _description = "Property Garden Line"
+
+    garden_property_id = fields.Many2one("property")
+    area = fields.Float()
+    description = fields.Char()
+    area_squared = fields.Float(compute="_compute_area_squared")
+
+    @api.depends('area')
+    def _compute_area_squared(self):
+        for rec in self:
+            rec.area_squared = rec.area ** 2 if rec.area else 0

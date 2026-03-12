@@ -5,7 +5,7 @@ class TestProperty(TransactionCase):
 
     def setUp(self, *args, **kwargs):
         super(TestProperty, self).setUp(*args, **kwargs)
-        
+
         self.property_01_record = self.env['app_one.property'].create({
             'ref': 'PRT1000',
             'name': 'Property 1000',
@@ -17,10 +17,16 @@ class TestProperty(TransactionCase):
             'selling_price': 8000,
             'bedrooms': 3,
         })
+        # add a garden line for later assertions
+        self.garden_line = self.env['property.garden.line'].create({
+            'garden_property_id': self.property_01_record.id,
+            'description': 'Front Garden',
+            'area': 5.0,
+        })
 
     def test_property_01_values(self):
         property_id = self.property_01_record
-        
+
         self.assertRecordValues(property_id, [
             ('ref', 'PRT1000'),
             ('name', 'Property 1000'),
@@ -32,3 +38,5 @@ class TestProperty(TransactionCase):
             ('selling_price', 8000),
             ('bedrooms', 3),
         ])
+        # verify the garden line computed field
+        self.assertEqual(self.garden_line.area_squared, 25.0)
