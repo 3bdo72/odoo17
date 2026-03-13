@@ -1,4 +1,5 @@
-from odoo import models, fields, api
+
+from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 from datetime import timedelta
 
@@ -7,7 +8,7 @@ class Property(models.Model):
     _description ="Property"
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    ref = fields.Char(default = 'New', readonly = True)
+    ref = fields.Char(default = _('New'), readonly = True)
     name = fields.Char(required=True)  # Ensure required field
     description = fields.Text()
     postcode = fields.Char(tracking=1)
