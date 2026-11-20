@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="school_management_system_root_menu"
+        name="School Management System"/>
+    <menuitem
+        id="students_menu"
+        name="Students"
+        parent="school_management_system_root_menu"/>
+</odoo>

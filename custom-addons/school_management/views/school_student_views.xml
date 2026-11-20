@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View school.student View Tree -->
+    <record id="view_school_student_tree" model="ir.ui.view">
+        <field name="name">view.school.student.tree</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="address"/>
+                <field name="birth_date"/>
+                <field name="gender"/>
+                <field name="grade"/>
+                <field name="enrollment_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View school.student form -->
+    <record id="view_school_student_form" model="ir.ui.view">
+        <field name="name">view.school.student.form</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <form string="School Student">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Student Name..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="Basic Information" string="Basic Information">
+                            <field name="age" placeholder="Student Age..."/>
+                            <field name="email" placeholder="student@example.com"/>
+                            <field name="phone" placeholder="+20 123 456 7890" />
+                            <field name="address" placeholder="123 Main Street, City, Country"/>
+                            <field name="birth_date" placeholder="YYYY-MM-DD"/>
+                            <field name="gender"/>
+                        </group>
+                        <group name="Academic Information" string="Academic Information">
+                            <field name="grade" placeholder="Student Grade..."/>
+                            <field name="enrollment_date" placeholder="YYYY-MM-DD"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View school.student search -->
+    <record id="view_school_student_search" model="ir.ui.view">
+        <field name="name">view.school.student.search</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+
+            </search>
+        </field>
+    </record>
+
+    <!-- Action school.student -->
+    <record id="action_school_student" model="ir.actions.act_window">
+        <field name="name">School Student</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new School Student.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu school.student -->
+    <menuitem
+        id="student_menu"
+        name="Student"
+        parent="students_menu"
+        action="action_school_student"/>
+</odoo>

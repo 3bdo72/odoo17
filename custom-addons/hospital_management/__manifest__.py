@@ -21,10 +21,10 @@
         "security/ir.model.access.csv",
         "data/sequence.xml",
         "views/base.xml",
+        "views/hospital_doctor_views.xml",
         "views/hospital_patient_views.xml",
         "views/patient_gender_view.xml",
-        "views/hospital_appointment_views.xml",
-        "views/hospital_doctor_views.xml"
+        "views/hospital_appointment_views.xml"
     ],
     # only loaded in demonstration mode
     # 'demo': [
