@@ -17,7 +17,9 @@
     "data": [
         "security/ir.model.access.csv",
         "views/base_menu.xml",
+        "views/school_management_courses_views.xml",
         "views/school_student_views.xml",
+        "views/school_management_courses_views.xml",
     ],
 
     'installable': True,

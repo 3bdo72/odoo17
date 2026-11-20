@@ -1,2 +1,3 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 access_school_student_manager,school_student_manager,model_school_student,,1,1,1,1
+access_school_management_courses_manager,school_management_courses_manager,model_school_management_courses,,1,1,1,1

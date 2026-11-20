@@ -37,7 +37,7 @@
                         <group name="Basic Information" string="Basic Information">
                             <field name="age" placeholder="Student Age..."/>
                             <field name="email" placeholder="student@example.com" widget="email"/>
-                            <field name="phone" nolabel="1" placeholder="+20 123 456 7890" widget="phone"/>
+                            <field name="phone" placeholder="+20 123 456 7890" widget="phone"/>
                             <field name="address" placeholder="123 Main Street, City, Country"/>
                             <field name="birth_date" placeholder="YYYY-MM-DD"/>
                             <field name="gender"/>
@@ -45,6 +45,7 @@
                         <group name="Academic Information" string="Academic Information">
                             <field name="grade" placeholder="Student Grade..."/>
                             <field name="enrollment_date" placeholder="YYYY-MM-DD"/>
+                            <field name="courses_ids" placeholder="Course(s)" widget="many2many_tags"/>
                         </group>
                     </group>
                 </sheet>

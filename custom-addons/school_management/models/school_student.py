@@ -25,3 +25,4 @@ class SchoolStudent(models.Model):
         ('grade_5', 'Grade 5'),
     ], string='Grade')
     enrollment_date = fields.Date(string='Enrollment Date')
+    courses_ids = fields.Many2many('school_management.courses', string='Courses(s)')  # Many2many relationship with courses
